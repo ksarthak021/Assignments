@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Employee Registration Form</title>
+</head>
+<body>
+
+  <h2 align="center">New Employee Registration Form</h2>
+
+  <form action="/submit" method="post"  onsubmit="return validateForm()">
+    <table align="center" border="1" cellpadding="10" cellspacing="0">
+      <tr>
+        <td><label for="firstName">First Name:</label></td>
+        <td><input type="text" id="firstName" name="firstName" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="lastName">Last Name:</label></td>
+        <td><input type="text" id="lastName" name="lastName" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="email" id="email" name="email" required></td>
+      </tr>
+
+      <tr>
+        <td><label>Gender:</label></td>
+        <td>
+          <input type="radio" name="gender" value="Male" required> Male
+          <input type="radio" name="gender" value="Female"> Female
+          <input type="radio" name="gender" value="Other"> Other
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="age">Age:</label></td>
+        <td><input type="number" id="age" name="age" min="18" max="65" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="city">City:</label></td>
+        <td>
+          <input list="cities" id="city" name="city" required>
+          <datalist id="cities">
+            <option value="Bangalore">
+            <option value="Mumbai">
+            <option value="Delhi">
+            <option value="Hyderabad">
+            <option value="Chennai">
+          </datalist>
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="resume">Upload Resume:</label></td>
+        <td><input type="file" id="resume" name="resume" accept=".doc,.docx,.pdf" required></td>
+      </tr>
+
+      <tr>
+        <td><label for="position">Position Applying For:</label></td>
+        <td>
+          <select id="position" name="position" required>
+            <option value="">--Select Position--</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="DevOps Engineer">DevOps Engineer</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="joiningDate">Tentative Date to Join:</label></td>
+        <td><input type="date" id="joiningDate" name="joiningDate" required></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" align="center">
+          <button type="submit">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const resume = document.getElementById("resume").value;
+      const allowedExtensions = /(\.doc|\.docx|\.pdf)$/i;
+
+      if (!allowedExtensions.exec(resume)) {
+        alert("Please upload file having extensions .doc/.docx/.pdf only.");
+        return;
+      }
+
+      alert("Form submitted successfully!");
+      this.reset(); 
+    });
+  </script>
+
+</body>
+</html>
