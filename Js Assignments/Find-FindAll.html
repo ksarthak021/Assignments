@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Highlight Word</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      background-color: #929090;
+      color: #333;
+    }
+
+    h2 {
+      color: #007bff;
+      text-align: center;
+    }
+
+    #text {
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+      color: #000;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 90px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 14px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Find and Highlight Words</h2>
+    <p id="text">
+        Samosa is a fried pastry snack, usually with a filling of spiced potatoes. They are very popular in India, Middle East & Asian countries.
+         They originated from the Middle East and were brought to India by the Merchants. Today Samosa is one of the most eaten snack in the South Asian Countries.
+        You will find variations with mixed vegetables, keema, only onions and cheese/paneer. 
+        But nothing beats the Classic potato version and after Pakora, these are the most popular street snack in India.<br>
+        You will find samosas everywhere, as a street food, party snack, restaurants and even in cafes. 
+        They are very special during Holi, the Indian festival of colors & also during the month of Ramadan and are eaten as an Iftar snack.
+        We usually avoid eating fried snacks in cafes and restaurants for health reasons (oil being heated too long). 
+        Years ago I learnt making samosas because my kids love them. Making them at home is super easy if you learn the steps correctly especially making the crust.
+        
+    </p>
+
+    <input type="text" id="wordInput" placeholder="Enter word to find">
+    <button onclick="highlightWord(false)">Find</button>
+    <button onclick="highlightWord(true)">Find All</button>
+  </div>
+
+  <script>
+    function highlightWord(findAll) {
+      const word = document.getElementById("wordInput").value.trim();
+      const textEl = document.getElementById("text");
+      const originalText = textEl.innerText;
+
+    
+      textEl.innerHTML = originalText;
+
+      if (!word) {
+        alert("Please enter a word to find.");
+        return;
+      }
+
+      let result = "";
+      let start = 0;
+      let index;
+
+      while ((index = originalText.toLowerCase().indexOf(word.toLowerCase(), start)) !== -1) {
+        result += originalText.slice(start, index);
+        result += `<span class="highlight">${originalText.slice(index, index + word.length)}</span>`;
+        start = index + word.length;
+
+        if (!findAll) break;
+      }
+
+      result += originalText.slice(start);
+
+      if (result === originalText) {
+        alert("Word not found.");
+      } else {
+        textEl.innerHTML = result;
+      }
+    }
+  </script>
+</body>
+</html>
