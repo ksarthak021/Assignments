@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vehicle Maintenance Tracker</title>
+  <script src="store.legacy.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      padding: 80px;
+      margin: 0;
+      background-image: linear-gradient( 89.4deg,  rgba(194,0,39,1) 0.8%, rgba(10,35,104,1) 99.4% );
+    }
+
+    .main-box {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 70px;
+      font-size: 40px;
+      color: #fff; 
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .add-task-box,
+    .task-list-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); 
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+    }
+
+    .add-task-box:hover,
+    .task-list-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5); 
+    }
+
+    h3 {
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .task-inputs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .task-inputs input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1 1 200px;
+    }
+
+    .task-inputs button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .task-inputs button:hover {
+      background: #0056b3;
+    }
+
+    .filter-options {
+      margin-bottom: 10px;
+      font-weight: medium;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(255, 255, 255, 0.1); 
+      border-radius: 8px;
+      overflow: auto;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+      background-color: rgba(255, 255, 255, 0.2); 
+
+    }
+
+    button {
+      padding: 6px 12px;
+      margin-right: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .edit-btn {
+      background-color: #ffc107;
+      color: #000;
+    }
+
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .done-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .save-btn {
+      background-color: #17a2b8;
+      color: white;
+    }
+
+    .cancel-btn {
+      background-color: gray;
+      color: white;
+    }
+
+    .line-through {
+      text-decoration: line-through;
+      color: rgb(217, 210, 210);
+    }
+
+    input.edit-input {
+      padding: 6px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+      width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="main-box">
+    <h2>Vehicle Maintenance Tracker</h2>
+
+    <div class="add-task-box">
+      <h3>Add New Task</h3>
+      <div class="task-inputs">
+        <input type="text" id="inputVehicleName" placeholder="Vehicle Name" />
+        <input type="text" id="inputVehicleModel" placeholder="Model" />
+        <input type="text" id="inputTaskDetail" placeholder="Task Description" />
+        <input type="date" id="inputTaskDate" />
+        <button onclick="saveNewTask()">Add Task</button>
+      </div>
+    </div>
+
+    <div class="task-list-box">
+      <h3>Task List</h3>
+      <div class="filter-options">
+        <label><input type="radio" name="filterStatus" value="all" checked onchange="showAllTasks()"> All</label>
+        <label><input type="radio" name="filterStatus" value="pending" onchange="showAllTasks()"> Pending</label>
+        <label><input type="radio" name="filterStatus" value="completed" onchange="showAllTasks()"> Completed</label>
+      </div>
+
+      <table id="tableTasks">
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    const localKey = 'myVehicleTasks';
+    let editingId = null;
+
+    function getSavedTasks() {
+      return store.get(localKey) || [];
+    }
+
+    function updateSavedTasks(tasks) {
+      store.set(localKey, tasks);
+    }
+
+    function saveNewTask() {
+      const name = document.getElementById("inputVehicleName").value.trim();
+      const model = document.getElementById("inputVehicleModel").value.trim();
+      const detail = document.getElementById("inputTaskDetail").value.trim();
+      const dueDate = document.getElementById("inputTaskDate").value;
+
+      if (!name || !model || !detail || !dueDate) {
+        alert("Please fill all fields");
+        return;
+      }
+
+      const tasks = getSavedTasks();
+      tasks.push({
+        id: Date.now(),
+        vehicleName: `${name} ${model}`,
+        taskText: detail,
+        due: dueDate,
+        isDone: false
+      });
+
+      updateSavedTasks(tasks);
+      clearInputFields();
+      showAllTasks();
+    }
+
+    function clearInputFields() {
+      document.getElementById("inputVehicleName").value = "";
+      document.getElementById("inputVehicleModel").value = "";
+      document.getElementById("inputTaskDetail").value = "";
+      document.getElementById("inputTaskDate").value = "";
+    }
+
+    function showAllTasks() {
+      const taskTable = document.querySelector("#tableTasks tbody");
+      const selectedFilter = document.querySelector('input[name="filterStatus"]:checked').value;
+      const allTasks = getSavedTasks();
+      taskTable.innerHTML = "";
+
+      allTasks.forEach(task => {
+        if ((selectedFilter === "pending" && task.isDone) ||
+            (selectedFilter === "completed" && !task.isDone)) return;
+
+        const row = document.createElement("tr");
+
+        if (editingId === task.id) {
+          row.innerHTML = `
+            <td>${task.vehicleName}</td>
+            <td><input class="edit-input" id="editDesc" value="${task.taskText}"/></td>
+            <td><input type="date" class="edit-input" id="editDate" value="${task.due}"/></td>
+            <td>${task.isDone ? "Completed" : "Pending"}</td>
+            <td>
+              <button class="save-btn" onclick="saveEdit(${task.id})">Save</button>
+              <button class="cancel-btn" onclick="cancelEdit()">Cancel</button>
+            </td>`;
+        } else {
+          row.innerHTML = `
+            <td>${task.vehicleName}</td>
+            <td class="${task.isDone ? "line-through" : ""}">${task.taskText}</td>
+            <td>${task.due}</td>
+            <td>${task.isDone ? "Completed" : "Pending"}</td>
+            <td>
+              ${!task.isDone ? `<button class="done-btn" onclick="markTaskDone(${task.id})">Mark Done</button>` : ""}
+              <button class="edit-btn" onclick="editTask(${task.id})">Edit</button>
+              <button class="delete-btn" onclick="removeTask(${task.id})">Delete</button>
+            </td>`;
+        }
+
+        taskTable.appendChild(row);
+      });
+    }
+
+    function markTaskDone(id) {
+      const tasks = getSavedTasks();
+      tasks.forEach(task => {
+        if (task.id === id) task.isDone = true;
+      });
+      updateSavedTasks(tasks);
+      showAllTasks();
+    }
+
+    function removeTask(id) {
+      if (!confirm("Delete this task?")) return;
+      const tasks = getSavedTasks().filter(task => task.id !== id);
+      updateSavedTasks(tasks);
+      showAllTasks();
+    }
+
+    function editTask(id) {
+      editingId = id;
+      showAllTasks();
+    }
+
+    function cancelEdit() {
+      editingId = null;
+      showAllTasks();
+    }
+
+    function saveEdit(id) {
+      const updatedDesc = document.getElementById("editDesc").value.trim();
+      const updatedDate = document.getElementById("editDate").value;
+      if (!updatedDesc || !updatedDate) {
+        alert("Please fill both fields");
+        return;
+      }
+
+      const tasks = getSavedTasks();
+      tasks.forEach(task => {
+        if (task.id === id) {
+          task.taskText = updatedDesc;
+          task.due = updatedDate;
+        }
+      });
+
+      updateSavedTasks(tasks);
+      editingId = null;
+      showAllTasks();
+    }
+
+    showAllTasks();
+  </script>
+</body>
+</html>
