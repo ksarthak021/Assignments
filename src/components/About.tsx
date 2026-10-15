@@ -27,13 +27,15 @@ export function About() {
           </div>
 
           <figure className={`about__figure reveal reveal-delay-1${visible}`}>
-            <img
-              src="/images/about-knit.jpg"
-              alt="Cream knit garment hanging on a wooden hanger"
-              width={1600}
-              height={2000}
-              loading="lazy"
-            />
+            <div className="media-frame">
+              <img
+                src="/images/about-knit.jpg"
+                alt="Cream knit garment hanging on a wooden hanger"
+                width={1600}
+                height={2000}
+                loading="lazy"
+              />
+            </div>
             <figcaption className="about__caption">
               Delicates on the rail — soft light, patient hands.
             </figcaption>

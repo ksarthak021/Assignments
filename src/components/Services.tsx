@@ -24,14 +24,43 @@ const services = [
   },
 ]
 
+function ServiceRow({
+  title,
+  text,
+  image,
+  alt,
+  flip,
+}: (typeof services)[number]) {
+  const { ref, isInView } = useInView<HTMLElement>()
+
+  return (
+    <article
+      ref={ref}
+      className={`service-row${flip ? ' service-row--flip' : ''} reveal${isInView ? ' is-visible' : ''}`}
+    >
+      <figure className="service-row__media">
+        <div className="media-frame">
+          <img src={image} alt={alt} width={1600} height={1280} loading="lazy" />
+        </div>
+      </figure>
+      <div className="service-row__copy">
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    </article>
+  )
+}
+
 export function Services() {
   const { ref, isInView } = useInView<HTMLDivElement>()
-  const visible = isInView ? ' is-visible' : ''
 
   return (
     <section className="section services" id="services" aria-labelledby="services-title">
-      <div className="container" ref={ref}>
-        <div className={`services__intro reveal${visible}`}>
+      <div className="container">
+        <div
+          className={`services__intro reveal${isInView ? ' is-visible' : ''}`}
+          ref={ref}
+        >
           <p className="section__eyebrow">What we care for</p>
           <h2 className="section__title" id="services-title">
             Services shaped around fabric, not volume.
@@ -43,25 +72,8 @@ export function Services() {
         </div>
 
         <div className="services__rows">
-          {services.map((service, index) => (
-            <article
-              key={service.title}
-              className={`service-row${service.flip ? ' service-row--flip' : ''} reveal reveal-delay-${(index % 3) + 1}${visible}`}
-            >
-              <figure className="service-row__media">
-                <img
-                  src={service.image}
-                  alt={service.alt}
-                  width={1600}
-                  height={1280}
-                  loading="lazy"
-                />
-              </figure>
-              <div className="service-row__copy">
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </div>
-            </article>
+          {services.map((service) => (
+            <ServiceRow key={service.title} {...service} />
           ))}
         </div>
       </div>

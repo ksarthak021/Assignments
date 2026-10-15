@@ -1,7 +1,19 @@
+import { useScrollProgress } from '../hooks/useScrollProgress'
+
 export function Hero() {
+  const progress = useScrollProgress('.hero')
+  const mediaShift = progress * 48
+  const mediaScale = 1.08 - progress * 0.04
+
   return (
     <section className="hero" id="top" aria-labelledby="hero-brand">
-      <div className="hero__media" aria-hidden="true">
+      <div
+        className="hero__media"
+        aria-hidden="true"
+        style={{
+          transform: `translate3d(0, ${mediaShift}px, 0) scale(${mediaScale})`,
+        }}
+      >
         <img
           src="/images/hero-wash.jpg"
           alt=""
@@ -10,11 +22,13 @@ export function Hero() {
           fetchPriority="high"
         />
         <div className="hero__veil" />
+        <div className="hero__grain" />
       </div>
 
       <div className="hero__content">
         <h1 className="hero__brand" id="hero-brand">
-          Northline Press
+          Northline
+          <span className="hero__brand-line">Press</span>
         </h1>
         <p className="hero__headline">Garment care, quietly elevated.</p>
         <p className="hero__support">
