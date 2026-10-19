@@ -1,24 +1,22 @@
-import { About } from './components/About'
-import { Contact } from './components/Contact'
+import { Booking } from './components/Booking'
 import { Footer } from './components/Footer'
-import { Header } from './components/Header'
 import { Hero } from './components/Hero'
-import { Process } from './components/Process'
+import { Pricing } from './components/Pricing'
 import { Services } from './components/Services'
+import { Track } from './components/Track'
 
 function App() {
   return (
     <>
-      <a className="skip-link" href="#main">
+      <a className="skip-link" href="#services">
         Skip to content
       </a>
-      <Header />
-      <main id="main">
+      <main>
         <Hero />
-        <About />
-        <Process />
         <Services />
-        <Contact />
+        <Pricing />
+        <Track />
+        <Booking />
       </main>
       <Footer />
     </>

@@ -1,13 +1,12 @@
 export function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer className="site-footer">
-      <div className="container site-footer__inner">
-        <p className="site-footer__brand">Northline Press</p>
-        <p className="site-footer__note">
-          © {year} Northline Press. Premium laundry & garment care.
-        </p>
+      <div className="site-footer__inner">
+        <a className="wordmark wordmark--footer" href="#top">
+          <span className="wordmark__mark" aria-hidden="true" />
+          Northline
+        </a>
+        <p>© {new Date().getFullYear()} Northline Press. Pickup, press, deliver.</p>
       </div>
     </footer>
   )
