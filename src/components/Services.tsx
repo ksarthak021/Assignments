@@ -1,21 +1,13 @@
-const services = [
+const cards = [
   {
-    title: 'Wash & fold',
-    text: 'Weekly essentials cleaned soft, sorted, and labeled for drawers and closets.',
-    image: '/images/service-wash.jpg',
-    alt: 'Laundry basket filled with everyday clothing',
+    title: 'Express wash',
+    text: 'Same-day or next-morning turnaround for guests rushing to checkout.',
+    icon: 'Ex',
   },
   {
     title: 'Dry cleaning',
-    text: 'Jackets, silk, and occasion wear finished with careful solvent care and press.',
-    image: '/images/service-dry.jpg',
-    alt: 'Crisply pressed suit ready for wear',
-  },
-  {
-    title: 'Press & hang',
-    text: 'Travel wrinkles and closet rest restored with steam and shape — hang-ready.',
-    image: '/images/service-press.jpg',
-    alt: 'Colorful shirts hanging on a professional rack',
+    text: 'Kurtas, jackets, and occasion wear cleaned and pressed for temple visits.',
+    icon: 'Dc',
   },
 ]
 
@@ -23,46 +15,37 @@ export function Services() {
   return (
     <section className="section" id="services">
       <div className="shell panel services-panel">
-        <div className="services-panel__intro">
-          <div>
-            <p className="eyebrow">Services</p>
-            <h2>Laundry services for modern living.</h2>
-            <p className="lead">
-              From everyday loads to delicate dry cleaning — scheduled around
-              your week, finished with care, and returned hang-ready.
-            </p>
-          </div>
-          <a className="btn btn--yellow" href="#pricing">
-            Explore pricing
-          </a>
-        </div>
-
         <div className="services-panel__grid">
           <figure className="services-panel__feature">
             <img
-              src="/images/service-hang.jpg"
-              alt="Clothes hanging neatly on wooden hangers"
-              width={1200}
-              height={800}
+              src="/images/services-feature.jpg"
+              alt="Person folding a crisp white sheet in the Northline studio"
+              width={1400}
+              height={2100}
               loading="lazy"
             />
           </figure>
-          <div className="service-cards">
-            {services.map((service) => (
-              <article key={service.title} className="service-card">
-                <img
-                  src={service.image}
-                  alt={service.alt}
-                  width={600}
-                  height={400}
-                  loading="lazy"
-                />
-                <div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                </div>
-              </article>
-            ))}
+          <div className="services-panel__copy">
+            <p className="eyebrow">Services</p>
+            <h2>Laundry services for modern Pushkar living.</h2>
+            <p className="lead">
+              From guest-house loads to delicate dry cleaning — we cover homes,
+              hostels, and stays around the Brahma Temple area and Ajmer Road.
+            </p>
+            <div className="service-mini-grid">
+              {cards.map((card) => (
+                <article key={card.title} className="service-mini">
+                  <span className="service-mini__icon" aria-hidden="true">
+                    {card.icon}
+                  </span>
+                  <h3>{card.title}</h3>
+                  <p>{card.text}</p>
+                </article>
+              ))}
+            </div>
+            <a className="btn btn--yellow" href="#pricing">
+              Explore our services
+            </a>
           </div>
         </div>
       </div>

@@ -1,15 +1,15 @@
 const points = [
   {
-    title: 'Fabric-first sorting',
-    text: 'We never dump mixed loads. Colors, fibers, and finishes stay separated.',
+    title: 'Festival-ready capacity',
+    text: 'Extra slots during Pushkar Fair and peak tourist weeks — booked early, delivered on time.',
   },
   {
-    title: 'Reliable windows',
-    text: 'Pickup and delivery slots you can plan around — with live status updates.',
+    title: 'Fabric-aware sorting',
+    text: 'Colors, cottons, and delicates stay separated. No mixed-load shortcuts.',
   },
   {
-    title: 'Inspected returns',
-    text: 'Every bag is checked before it leaves. Issues are flagged before you notice.',
+    title: 'Local riders',
+    text: 'Pickup windows that fit temple-town traffic, with WhatsApp updates you can trust.',
   },
 ]
 
@@ -19,7 +19,7 @@ export function WhyUs() {
       <div className="shell panel why-panel">
         <div className="why-panel__copy">
           <p className="eyebrow">Why Northline</p>
-          <h2>Built for people who notice the finish.</h2>
+          <h2>Built for Pushkar’s rhythm.</h2>
           <ul className="why-list">
             {points.map((point) => (
               <li key={point.title}>

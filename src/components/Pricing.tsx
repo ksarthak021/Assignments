@@ -1,26 +1,26 @@
 const plans = [
   {
-    name: 'Essentials',
-    price: '$39',
+    name: 'Everyday',
+    price: '₹349',
     unit: '/ bag',
-    detail: 'Wash & fold up to 15 lb with a 48-hour turnaround.',
-    features: ['Standard delivery window', 'Sorted & labeled', 'Email updates'],
+    detail: 'Wash & fold up to 8 kg. Ideal for a week of casual wear.',
+    features: ['48-hour turnaround', 'Folded & sorted', 'Free pickup in Pushkar'],
     featured: false,
   },
   {
-    name: 'Routine',
-    price: '$119',
+    name: 'Stay Ready',
+    price: '₹999',
     unit: '/ month',
-    detail: 'Four pickups a month with priority slots and hang-finish on shirting.',
-    features: ['Priority scheduling', 'Free hang-finish', 'Dedicated route notes'],
+    detail: 'Four pickups a month for guest houses and busy households.',
+    features: ['Priority slots', 'Express option included', 'WhatsApp status updates'],
     featured: true,
   },
   {
     name: 'Atelier',
-    price: '$29',
+    price: '₹119',
     unit: '/ piece',
-    detail: 'Dry cleaning and press for structured garments — quoted before we start.',
-    features: ['Pre-clean inspection', 'Hand finishing', 'Garment notes on return'],
+    detail: 'Dry cleaning & steam press for kurtas, shirts, and occasion wear.',
+    features: ['Pre-clean inspection', 'Hang-ready finish', 'Quoted before start'],
     featured: false,
   },
 ]
@@ -31,9 +31,9 @@ export function Pricing() {
       <div className="shell">
         <div className="section-head center">
           <p className="eyebrow">Pricing</p>
-          <h2>Simple plans. Clear totals.</h2>
+          <h2>Clear rates in rupees. No surprise fees.</h2>
           <p className="lead">
-            Confirm every order before we begin — no surge pricing, no surprise fees.
+            Honest Pushkar pricing — confirm every order before we begin.
           </p>
         </div>
         <div className="price-grid">
@@ -50,13 +50,13 @@ export function Pricing() {
               </p>
               <p className="price-card__detail">{plan.detail}</p>
               <ul>
-                {plan.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
+                {plan.features.map((f) => (
+                  <li key={f}>{f}</li>
                 ))}
               </ul>
               <a
                 className={`btn${plan.featured ? ' btn--yellow' : ' btn--navy'}`}
-                href="#contact"
+                href="#book"
               >
                 Get started
               </a>

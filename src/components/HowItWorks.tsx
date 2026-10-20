@@ -2,17 +2,17 @@ const steps = [
   {
     num: '01',
     title: 'Book a window',
-    text: 'Choose a pickup time online. Bag your clothes — we bring labeled bags if you need them.',
+    text: 'Tell us your Pushkar address, service, and preferred slot. We confirm by WhatsApp or call.',
   },
   {
     num: '02',
-    title: 'We clean with care',
-    text: 'Each load is sorted by fabric. Wash, dry clean, or press — never a one-size cycle.',
+    title: 'We collect & clean',
+    text: 'Bags are labeled, sorted by fabric, then washed, dry cleaned, or pressed as ordered.',
   },
   {
     num: '03',
     title: 'Delivered ready',
-    text: 'Folded or hung, inspected, and returned in your window with a clear order summary.',
+    text: 'Clothes return folded or hung within your window — with a reference you can track.',
   },
 ]
 

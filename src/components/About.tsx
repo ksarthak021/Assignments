@@ -1,3 +1,5 @@
+import { LOCATION } from '../lib/constants'
+
 export function About() {
   return (
     <section className="section" id="about">
@@ -5,7 +7,7 @@ export function About() {
         <div className="about-panel__media">
           <img
             src="/images/about-care.jpg"
-            alt="Specialist carefully sorting garments for professional care"
+            alt="Garments being carefully sorted for laundry care"
             width={1100}
             height={733}
             loading="lazy"
@@ -13,19 +15,19 @@ export function About() {
         </div>
         <div className="about-panel__copy">
           <p className="eyebrow">About Northline</p>
-          <h2>Neighborhood laundry care with boutique standards.</h2>
+          <h2>Local laundry care rooted in Pushkar.</h2>
           <p>
-            Northline started as a small finishing studio for people who wanted
-            laundry to feel considered — clear communication, careful sorting,
-            and finishes you notice when you put a shirt on.
+            We started as a small finishing studio for guest houses that needed
+            reliable turnaround during festival season. Today Northline serves
+            homes, hostels, and stays across {LOCATION.label} with the same
+            promise: clear windows, careful sorting, and hang-ready returns.
           </p>
           <p>
-            Today we serve homes and small offices across the city with the same
-            promise: reliable pickup windows, fabric-aware cleaning, and
-            hang-ready returns you can count on.
+            Whether you are near the Brahma Temple or along Ajmer Road, we
+            collect on your schedule and keep you updated until delivery.
           </p>
-          <a className="btn btn--yellow" href="#contact">
-            Meet the studio
+          <a className="btn btn--yellow" href="#book">
+            Book your first pickup
           </a>
         </div>
       </div>

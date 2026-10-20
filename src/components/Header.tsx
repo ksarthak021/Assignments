@@ -5,6 +5,9 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
   { href: '#pricing', label: 'Pricing' },
+  { href: '#gallery', label: 'Gallery' },
+  { href: '#track', label: 'Track' },
+  { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -13,7 +16,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    const onScroll = () => setScrolled(window.scrollY > 10)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -50,7 +53,7 @@ export function Header() {
               {link.label}
             </a>
           ))}
-          <a className="btn btn--navy btn--sm" href="#contact" onClick={() => setOpen(false)}>
+          <a className="btn btn--navy btn--sm" href="#book" onClick={() => setOpen(false)}>
             Book a Pickup
           </a>
         </nav>
