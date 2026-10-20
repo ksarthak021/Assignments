@@ -28,8 +28,8 @@ export function Services() {
             <p className="eyebrow">Services</p>
             <h2>Laundry services for modern living.</h2>
             <p className="lead">
-              From everyday loads to delicate dry cleaning — photography of real
-              care, not stock fluff.
+              From everyday loads to delicate dry cleaning — scheduled around
+              your week, finished with care, and returned hang-ready.
             </p>
           </div>
           <a className="btn btn--yellow" href="#pricing">
