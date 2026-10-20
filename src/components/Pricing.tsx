@@ -2,22 +2,25 @@ const plans = [
   {
     name: 'Essentials',
     price: '$39',
-    period: '/bag',
-    detail: 'Wash & fold up to 15 lb, 48-hour turnaround, standard delivery window.',
+    unit: '/ bag',
+    detail: 'Wash & fold up to 15 lb with a 48-hour turnaround.',
+    features: ['Standard delivery window', 'Sorted & labeled', 'Email updates'],
     featured: false,
   },
   {
     name: 'Routine',
     price: '$119',
-    period: '/mo',
-    detail: 'Four pickups a month, priority slots, and free hang-finish on shirting.',
+    unit: '/ month',
+    detail: 'Four pickups a month with priority slots and hang-finish on shirting.',
+    features: ['Priority scheduling', 'Free hang-finish', 'Dedicated route notes'],
     featured: true,
   },
   {
     name: 'Atelier',
     price: '$29',
-    period: '/piece',
-    detail: 'Dry cleaning and press for structured garments — quoted before we begin.',
+    unit: '/ piece',
+    detail: 'Dry cleaning and press for structured garments — quoted before we start.',
+    features: ['Pre-clean inspection', 'Hand finishing', 'Garment notes on return'],
     featured: false,
   },
 ]
@@ -25,12 +28,12 @@ const plans = [
 export function Pricing() {
   return (
     <section className="section" id="pricing">
-      <div className="section-panel">
-        <div className="section-panel__intro">
+      <div className="shell">
+        <div className="section-head center">
           <p className="eyebrow">Pricing</p>
-          <h2>Transparent rates. No surge surprises.</h2>
+          <h2>Simple plans. Clear totals.</h2>
           <p className="lead">
-            Choose a bag, a monthly rhythm, or piece-by-piece care — you always confirm before we start.
+            Confirm every order before we begin — no surge pricing, no surprise fees.
           </p>
         </div>
         <div className="price-grid">
@@ -39,14 +42,23 @@ export function Pricing() {
               key={plan.name}
               className={`price-card${plan.featured ? ' price-card--featured' : ''}`}
             >
+              {plan.featured ? <span className="price-card__badge">Most popular</span> : null}
               <h3>{plan.name}</h3>
               <p className="price-card__amount">
                 {plan.price}
-                <span>{plan.period}</span>
+                <span>{plan.unit}</span>
               </p>
-              <p>{plan.detail}</p>
-              <a className="btn-soft" href="#book">
-                Choose plan
+              <p className="price-card__detail">{plan.detail}</p>
+              <ul>
+                {plan.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+              <a
+                className={`btn${plan.featured ? ' btn--yellow' : ' btn--navy'}`}
+                href="#contact"
+              >
+                Get started
               </a>
             </article>
           ))}

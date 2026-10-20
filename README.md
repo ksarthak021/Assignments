@@ -1,6 +1,10 @@
-# Northline Press
+# Northline
 
-Modern laundry pickup & care marketing site — powder-blue product UI inspired by contemporary service apps.
+Launch-ready marketing site for **Northline** — laundry pickup, wash & fold, dry cleaning, and delivery.
+
+## Design
+
+Bright white panels on a soft blue canvas, deep navy type, yellow primary CTAs, and real laundry photography.
 
 ## Run locally
 
@@ -15,11 +19,11 @@ Open the Vite URL (usually `http://localhost:5173`).
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Dev server |
-| `npm run build` | Production build |
-| `npm run preview` | Preview build |
-| `npm run lint` | Lint |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Typecheck and production build |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run oxlint |
 
 ## Stack
 
-Vite + React + TypeScript, Plus Jakarta Sans, custom SVG map & shirt assets.
+Vite + React 19 + TypeScript · Plus Jakarta Sans · local optimized photography
