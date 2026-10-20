@@ -2,7 +2,7 @@ const steps = [
   {
     num: '01',
     title: 'Book a window',
-    text: 'Tell us your Pushkar address, service, and preferred slot. We confirm by WhatsApp or call.',
+    text: 'Tell us your Pushkar address, service, and preferred slot, and we confirm by WhatsApp or call.',
   },
   {
     num: '02',

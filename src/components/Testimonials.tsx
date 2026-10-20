@@ -1,7 +1,7 @@
 const reviews = [
   {
     quote:
-      'Our guest house finally has laundry that lands on time during mela season. Guests notice the crisp sheets.',
+      'Our guest house finally has laundry that lands on time during mela season, and guests notice the crisp sheets.',
     name: 'Ananya Sharma',
     role: 'Host, Brahma Temple area',
     avatar: '/images/avatars/a1.jpg',

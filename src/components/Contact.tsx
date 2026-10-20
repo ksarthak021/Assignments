@@ -90,7 +90,10 @@ export function Contact() {
               ✓
             </span>
             <h2>Message sent</h2>
-            <p>Thanks, {values.name.split(' ')[0]}. We’ll reply within one business day.</p>
+            <p>
+              Thanks, {values.name.split(' ')[0]} — we’ll reply within one
+              business day.
+            </p>
             <button
               type="button"
               className="btn btn--navy"

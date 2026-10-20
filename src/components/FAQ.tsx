@@ -1,15 +1,15 @@
 const faqs = [
   {
     q: 'Which areas of Pushkar do you cover?',
-    a: 'We pick up across Pushkar town, including the Brahma Temple area and stays along Ajmer Road. Message us if you are just outside town — we will confirm availability.',
+    a: 'We pick up across Pushkar town, including the Brahma Temple area and stays along Ajmer Road, and if you are just outside town we will confirm availability.',
   },
   {
     q: 'How fast is express laundry?',
-    a: 'Express orders booked before 10a are typically returned the same evening. Standard wash & fold is about 48 hours.',
+    a: 'Express orders booked before 10a are typically returned the same evening, and standard wash & fold is about 48 hours.',
   },
   {
     q: 'How do I pay?',
-    a: 'UPI, cash on delivery, or card at the studio. Monthly Stay Ready plans are billed at the start of each cycle.',
+    a: 'UPI, cash on delivery, or card at the studio, with monthly Stay Ready plans billed at the start of each cycle.',
   },
   {
     q: 'Can I track my order?',

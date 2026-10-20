@@ -94,8 +94,8 @@ export function Booking() {
           <p className="eyebrow">Book a pickup</p>
           <h2>Schedule collection in Pushkar.</h2>
           <p className="lead">
-            Share your details and preferred window. We confirm every request
-            before the rider leaves.
+            Share your details and preferred window, and we confirm every
+            request before the rider leaves.
           </p>
         </div>
 

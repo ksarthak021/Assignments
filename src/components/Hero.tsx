@@ -7,9 +7,9 @@ export function Hero() {
             <p className="eyebrow">Fresh clothes for Pushkar days</p>
             <h1 id="hero-title">Laundry care that keeps pace with temple town life.</h1>
             <p className="hero-card__lead">
-              Northline picks up across Pushkar, washes or dry cleans with care,
-              and returns your clothes hang-ready — so you can focus on guests,
-              guest houses, and the ghats.
+              Northline picks up across Pushkar, then washes or dry cleans with
+              care and returns your clothes hang-ready, so you can focus on
+              guests, guest houses, and the ghats.
             </p>
             <div className="hero-card__actions">
               <a className="btn btn--yellow" href="#book">

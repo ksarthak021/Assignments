@@ -3,7 +3,7 @@ const plans = [
     name: 'Everyday',
     price: '₹349',
     unit: '/ bag',
-    detail: 'Wash & fold up to 8 kg. Ideal for a week of casual wear.',
+    detail: 'Wash & fold up to 8 kg, ideal for a week of casual wear.',
     features: ['48-hour turnaround', 'Folded & sorted', 'Free pickup in Pushkar'],
     featured: false,
   },
@@ -31,7 +31,7 @@ export function Pricing() {
       <div className="shell">
         <div className="section-head center">
           <p className="eyebrow">Pricing</p>
-          <h2>Clear rates in rupees. No surprise fees.</h2>
+          <h2>Clear rates in rupees, with no surprise fees.</h2>
           <p className="lead">
             Honest Pushkar pricing — confirm every order before we begin.
           </p>

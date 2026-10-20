@@ -5,7 +5,7 @@ const points = [
   },
   {
     title: 'Fabric-aware sorting',
-    text: 'Colors, cottons, and delicates stay separated. No mixed-load shortcuts.',
+    text: 'Colors, cottons, and delicates stay separated — no mixed-load shortcuts.',
   },
   {
     title: 'Local riders',

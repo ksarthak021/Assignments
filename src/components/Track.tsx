@@ -45,7 +45,7 @@ export function Track() {
           <p className="eyebrow">Track order</p>
           <h2>See where your laundry is.</h2>
           <p className="lead">
-            Enter your reference to view live stages. Demo order:{' '}
+            Enter your reference to view live stages — demo order:{' '}
             <button
               type="button"
               className="text-chip"
