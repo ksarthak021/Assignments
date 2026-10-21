@@ -41,11 +41,17 @@ function App() {
       <main className="snap-scroller" id="snap-scroller">
         <SnapCard id="top" className="snap-panel--hero">
           <Hero />
+        </SnapCard>
+
+        <SnapCard id="stats">
           <Stats />
         </SnapCard>
 
         <SnapCard id="services">
           <Services />
+        </SnapCard>
+
+        <SnapCard id="how">
           <HowItWorks />
         </SnapCard>
 
@@ -53,8 +59,11 @@ function App() {
           <Pricing />
         </SnapCard>
 
-        <SnapCard id="why">
+        <SnapCard id="about">
           <About />
+        </SnapCard>
+
+        <SnapCard id="why">
           <WhyUs />
         </SnapCard>
 
@@ -72,6 +81,9 @@ function App() {
 
         <SnapCard id="book">
           <Booking />
+        </SnapCard>
+
+        <SnapCard id="track">
           <Track />
         </SnapCard>
 

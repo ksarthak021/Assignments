@@ -2,7 +2,7 @@ import { LOCATION } from '../lib/constants'
 
 export function About() {
   return (
-    <section className="section" id="about">
+    <div className="section">
       <div className="panel about-panel">
         <div className="about-panel__media">
           <img
@@ -31,6 +31,6 @@ export function About() {
           </a>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

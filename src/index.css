@@ -151,16 +151,30 @@ textarea {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: clamp(1rem, 2.2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
 }
 
-.snap-card > .section + .section,
-.snap-card > .hero + .stats,
-.snap-card > .section + section,
-.snap-card > section + .section,
-.snap-card > section + section {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
+.snap-card > .section,
+.snap-card > .hero,
+.snap-card > .stats {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+}
+
+.snap-card > .site-footer {
+  flex: 0 0 auto;
+}
+
+.snap-panel--hero .snap-card {
+  overflow: hidden;
+}
+
+.snap-panel--hero .hero,
+.snap-panel--hero .hero-card {
+  height: 100%;
+  min-height: 0;
 }
 
 .snap-card .section {
@@ -435,6 +449,9 @@ h3 {
 /* Hero */
 .hero {
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 .hero-card {
   display: grid;
@@ -445,15 +462,19 @@ h3 {
   border-radius: 0;
   box-shadow: none;
   align-items: stretch;
-  min-height: min(520px, calc(100svh - var(--header-h) - var(--inset) * 2 - 9rem));
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
   animation: rise-in 0.7s var(--ease) both;
 }
 .hero-card__copy {
   display: grid;
   align-content: center;
+  min-height: 0;
   animation: rise-in 0.8s var(--ease) 0.08s both;
 }
 .hero-card__media {
+  min-height: 0;
   animation: rise-in 0.85s var(--ease) 0.16s both;
 }
 .simplify-card {
@@ -515,16 +536,15 @@ h3 {
   position: relative;
   border-radius: 22px;
   overflow: hidden;
-  min-height: 280px;
+  min-height: 0;
   height: 100%;
   background: #d9e6f4;
 }
 .hero-card__media > img {
   width: 100%;
   height: 100%;
-  min-height: 280px;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 18%;
 }
 .trust-badge {
   position: absolute;
@@ -557,29 +577,32 @@ h3 {
   left: 0.85rem;
   right: 0.85rem;
   bottom: 0.85rem;
+  z-index: 2;
   padding: 0.85rem 1rem;
   border-radius: 16px;
   background: rgba(7, 31, 72, 0.94);
   color: #fff;
   box-shadow: 0 16px 30px rgba(7, 31, 72, 0.28);
+  max-height: calc(100% - 1.7rem);
+  overflow: auto;
 }
 .simplify-card h2 {
-  margin: 0 0 0.65rem;
-  font-size: 1.15rem;
+  margin: 0 0 0.55rem;
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
   font-weight: 750;
   color: #fff;
 }
 .simplify-card ul {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.7rem;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.35rem;
 }
 .simplify-card li {
   position: relative;
   padding-left: 1.35rem;
-  font-size: 0.9rem;
+  font-size: clamp(0.82rem, 1.3vw, 0.9rem);
   color: rgba(255, 255, 255, 0.88);
 }
 .simplify-card li::before {
@@ -599,20 +622,36 @@ h3 {
 }
 
 @media (max-width: 960px) {
+  .snap-panel--hero .snap-card {
+    overflow-y: auto;
+  }
   .hero-card {
     grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100%;
   }
   .hero-card__copy h1 {
     max-width: none;
+    font-size: clamp(1.8rem, 8vw, 2.4rem);
+  }
+  .hero-card__lead {
+    margin-bottom: 1rem;
+    font-size: 0.98rem;
+  }
+  .hero-card__media {
+    min-height: 320px;
+    aspect-ratio: 4 / 5;
+    height: auto;
   }
 }
 
 /* Stats */
 .stats {
   padding: 0;
-  margin-top: 1.1rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--line);
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+  min-height: 100%;
 }
 .stats__inner {
   display: grid;
@@ -734,26 +773,28 @@ h3 {
 
 /* Services */
 .services-panel {
-  padding: clamp(1.4rem, 3vw, 2.25rem);
+  padding: 0;
+  height: 100%;
 }
 .services-panel__grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 1.5rem;
   align-items: center;
+  height: 100%;
+  min-height: 0;
 }
 .services-panel__feature {
   margin: 0;
   border-radius: 22px;
   overflow: hidden;
-  min-height: 280px;
-  max-height: min(520px, 55svh);
+  min-height: 0;
+  height: min(100%, 62svh);
 }
 .services-panel__feature img {
   width: 100%;
   height: 100%;
-  min-height: 280px;
-  max-height: min(520px, 55svh);
+  min-height: 240px;
   object-fit: cover;
 }
 .services-panel__copy .lead {

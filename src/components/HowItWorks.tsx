@@ -18,7 +18,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="section" id="how">
+    <div className="section">
       <div>
         <div className="section-head">
           <p className="eyebrow">How it works</p>
@@ -34,6 +34,6 @@ export function HowItWorks() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
