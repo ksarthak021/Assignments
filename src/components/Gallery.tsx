@@ -9,7 +9,7 @@ const shots = [
 
 export function Gallery() {
   return (
-    <section className="section" id="gallery">
+    <div className="section">
       <div className="shell">
         <div className="section-head center">
           <p className="eyebrow">Gallery</p>
@@ -23,6 +23,6 @@ export function Gallery() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }

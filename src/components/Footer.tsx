@@ -3,7 +3,7 @@ import { LOCATION, PHONE_DISPLAY, PHONE_TEL, WHATSAPP_E164 } from '../lib/consta
 export function Footer() {
   return (
     <footer className="site-footer">
-      <div className="shell site-footer__inner">
+      <div className="site-footer__inner">
         <a className="brand brand--light" href="#top">
           <span className="brand__mark" aria-hidden="true" />
           Northline

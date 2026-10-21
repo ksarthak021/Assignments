@@ -17,7 +17,7 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="section" id="reviews">
+    <div className="section">
       <div className="shell panel reviews-panel">
         <div className="reviews-panel__copy">
           <p className="eyebrow">Testimonials</p>
@@ -50,6 +50,6 @@ export function Testimonials() {
           />
         </figure>
       </div>
-    </section>
+    </div>
   )
 }

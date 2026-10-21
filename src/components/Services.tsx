@@ -13,7 +13,7 @@ const cards = [
 
 export function Services() {
   return (
-    <section className="section" id="services">
+    <div className="section">
       <div className="shell panel services-panel">
         <div className="services-panel__grid">
           <figure className="services-panel__feature">
@@ -49,6 +49,6 @@ export function Services() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

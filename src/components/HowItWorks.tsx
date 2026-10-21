@@ -19,7 +19,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section className="section" id="how">
-      <div className="shell">
+      <div>
         <div className="section-head">
           <p className="eyebrow">How it works</p>
           <h2>Three steps from pile to polish.</h2>

@@ -40,7 +40,7 @@ export function Track() {
 
   return (
     <section className="section" id="track">
-      <div className="shell panel track-panel">
+      <div className="panel track-panel">
         <div>
           <p className="eyebrow">Track order</p>
           <h2>See where your laundry is.</h2>

@@ -53,7 +53,7 @@ export function Booking() {
 
   if (reference) {
     return (
-      <section className="section" id="book">
+      <div className="section">
         <div className="shell panel contact-panel contact-panel--success">
           <div className="success-state" role="status">
             <span className="success-state__icon" aria-hidden="true">
@@ -83,12 +83,12 @@ export function Booking() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     )
   }
 
   return (
-    <section className="section" id="book">
+    <div className="section">
       <div className="shell panel contact-panel">
         <div>
           <p className="eyebrow">Book a pickup</p>
@@ -189,6 +189,6 @@ export function Booking() {
           </button>
         </form>
       </div>
-    </section>
+    </div>
   )
 }

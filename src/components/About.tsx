@@ -3,7 +3,7 @@ import { LOCATION } from '../lib/constants'
 export function About() {
   return (
     <section className="section" id="about">
-      <div className="shell panel about-panel">
+      <div className="panel about-panel">
         <div className="about-panel__media">
           <img
             src="/images/about-care.jpg"

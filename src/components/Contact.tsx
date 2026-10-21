@@ -40,7 +40,7 @@ export function Contact() {
   }
 
   return (
-    <section className="section" id="contact">
+    <div className="section">
       <div className="shell panel contact-panel contact-panel--map">
         <div>
           <p className="eyebrow">Contact</p>
@@ -142,6 +142,6 @@ export function Contact() {
           </form>
         )}
       </div>
-    </section>
+    </div>
   )
 }

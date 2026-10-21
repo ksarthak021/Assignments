@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { About } from './components/About'
 import { Booking } from './components/Booking'
 import { Contact } from './components/Contact'
@@ -14,6 +15,22 @@ import { Testimonials } from './components/Testimonials'
 import { Track } from './components/Track'
 import { WhyUs } from './components/WhyUs'
 
+function SnapCard({
+  id,
+  children,
+  className = '',
+}: {
+  id?: string
+  children: ReactNode
+  className?: string
+}) {
+  return (
+    <section className={`snap-panel${className ? ` ${className}` : ''}`} id={id}>
+      <div className="snap-card">{children}</div>
+    </section>
+  )
+}
+
 function App() {
   return (
     <>
@@ -21,22 +38,48 @@ function App() {
         Skip to content
       </a>
       <Header />
-      <main>
-        <Hero />
-        <Stats />
-        <Services />
-        <Pricing />
-        <About />
-        <HowItWorks />
-        <WhyUs />
-        <Gallery />
-        <Testimonials />
-        <FAQ />
-        <Track />
-        <Booking />
-        <Contact />
+      <main className="snap-scroller" id="snap-scroller">
+        <SnapCard id="top" className="snap-panel--hero">
+          <Hero />
+          <Stats />
+        </SnapCard>
+
+        <SnapCard id="services">
+          <Services />
+          <HowItWorks />
+        </SnapCard>
+
+        <SnapCard id="pricing">
+          <Pricing />
+        </SnapCard>
+
+        <SnapCard id="why">
+          <About />
+          <WhyUs />
+        </SnapCard>
+
+        <SnapCard id="reviews">
+          <Testimonials />
+        </SnapCard>
+
+        <SnapCard id="gallery">
+          <Gallery />
+        </SnapCard>
+
+        <SnapCard id="faq">
+          <FAQ />
+        </SnapCard>
+
+        <SnapCard id="book">
+          <Booking />
+          <Track />
+        </SnapCard>
+
+        <SnapCard id="contact">
+          <Contact />
+          <Footer />
+        </SnapCard>
       </main>
-      <Footer />
     </>
   )
 }

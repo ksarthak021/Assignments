@@ -19,7 +19,7 @@ const faqs = [
 
 export function FAQ() {
   return (
-    <section className="section" id="faq">
+    <div className="section">
       <div className="shell panel faq-panel">
         <div className="section-head">
           <p className="eyebrow">FAQ</p>
@@ -34,6 +34,6 @@ export function FAQ() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }

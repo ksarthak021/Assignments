@@ -27,7 +27,7 @@ const plans = [
 
 export function Pricing() {
   return (
-    <section className="section" id="pricing">
+    <div className="section">
       <div className="shell">
         <div className="section-head center">
           <p className="eyebrow">Pricing</p>
@@ -64,6 +64,6 @@ export function Pricing() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }

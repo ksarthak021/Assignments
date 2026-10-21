@@ -16,16 +16,40 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10)
+    const scroller = document.getElementById('snap-scroller')
+    const onScroll = () => {
+      const y = scroller ? scroller.scrollTop : window.scrollY
+      setScrolled(y > 10)
+    }
     onScroll()
+    scroller?.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      scroller?.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', onScroll)
+    }
   }, [])
+
+  function goTo(href: string) {
+    setOpen(false)
+    if (!href.startsWith('#')) return
+    const id = href.slice(1)
+    const target = document.getElementById(id)
+    const panel = target?.closest('.snap-panel') as HTMLElement | null
+    ;(panel ?? target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="shell site-header__inner">
-        <a className="brand" href="#top" onClick={() => setOpen(false)}>
+        <a
+          className="brand"
+          href="#top"
+          onClick={(e) => {
+            e.preventDefault()
+            goTo('#top')
+          }}
+        >
           <span className="brand__mark" aria-hidden="true" />
           Northline
         </a>
@@ -49,11 +73,25 @@ export function Header() {
           aria-label="Primary"
         >
           {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault()
+                goTo(link.href)
+              }}
+            >
               {link.label}
             </a>
           ))}
-          <a className="btn btn--navy btn--sm" href="#book" onClick={() => setOpen(false)}>
+          <a
+            className="btn btn--navy btn--sm"
+            href="#book"
+            onClick={(e) => {
+              e.preventDefault()
+              goTo('#book')
+            }}
+          >
             Book a Pickup
           </a>
         </nav>
