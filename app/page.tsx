@@ -3,12 +3,7 @@ import { Hero } from "@/components/Hero";
 import { PlanFlow } from "@/components/PlanFlow";
 import { Reveal } from "@/components/Reveal";
 import { asset } from "@/lib/asset";
-import {
-  compositeNotes,
-  homeMeta,
-  processSteps,
-  services,
-} from "@/lib/site";
+import { homeMeta, processSteps, services } from "@/lib/site";
 
 export const metadata = homeMeta();
 
@@ -109,10 +104,7 @@ export default function HomePage() {
             <div className="intro">
               <p className="kicker">Signature settings</p>
               <h2>Rooms in the language of the house.</h2>
-              <p className="lede">
-                These photographs are studies of mandap, tent, and evening light. They are not a
-                list of past clients.
-              </p>
+              <p className="lede">Mandap, tent, and evening light — the rooms the house builds.</p>
             </div>
           </Reveal>
           <div className="feature-grid">
@@ -165,21 +157,14 @@ export default function HomePage() {
         <div className="wrap">
           <Reveal>
             <div className="intro">
-              <p className="kicker">Composite notes</p>
-              <h2>Lines in the shape of a weekend.</h2>
-              <p className="note">
-                These are composite impressions of the work, written for this site. They are not
-                quotations from named guests, and they are not taken from a public review.
+              <p className="kicker">The house</p>
+              <h2>A weekend, held in one plan.</h2>
+              <p className="lede">
+                The mandap, the tent, and the evening are one piece of work. We keep the hour, the
+                path, and the light so the family can stay with the rite.
               </p>
             </div>
           </Reveal>
-          <div className="quotes">
-            {compositeNotes.map((note, index) => (
-              <Reveal as="blockquote" key={note.text} delay={(index % 3) * 90}>
-                <p>{note.text}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

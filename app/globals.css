@@ -744,11 +744,31 @@ a { color: inherit; }
 .facts dt { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--maroon); }
 .facts dd { margin: 4px 0 0; }
 .facts a { color: var(--maroon); }
-.map-frame {
-  width: 100%;
-  height: 320px;
-  border: 0;
-  background: var(--ivory-2);
+.map-link {
+  display: grid;
+  align-content: end;
+  gap: 6px;
+  min-height: 220px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--ivory);
+  background:
+    linear-gradient(180deg, rgba(60, 16, 24, 0.12), rgba(60, 16, 24, 0.78)),
+    repeating-linear-gradient(90deg, transparent 0 46px, rgba(166, 132, 78, 0.45) 46px 47px),
+    repeating-linear-gradient(0deg, transparent 0 46px, rgba(166, 132, 78, 0.45) 46px 47px),
+    var(--ivory-2);
+}
+.map-link span {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.map-link strong {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 .about-grid { display: grid; gap: 28px; }
 .about-photo { margin: 0; }

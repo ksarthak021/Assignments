@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ksarthak021.github.io";
 
 export const BRAND = {
   name: "SVTP Events",
@@ -8,19 +8,25 @@ export const BRAND = {
   city: "Jaipur",
   region: "Rajasthan",
   country: "IN",
-  postalCode: "302001",
-  area: "Tonk Phatak / Pratap Nagar",
+  streetAddress: "Shiv Colony, Kissan Marg, Tonk Phatak",
+  postalCode: "302015",
+  address: "Shiv Colony, Kissan Marg, Tonk Phatak, Jaipur 302015",
+  phone: "+91 9982257338",
+  phoneTel: "tel:+919982257338",
+  email: "sarthakrules21@gmail.com",
+  emailMailto: "mailto:sarthakrules21@gmail.com",
+  whatsapp: "https://wa.me/919982257338",
   lat: 26.8720184,
   lng: 75.7905572,
 } as const;
 
 export const MAP = {
   google:
-    "https://www.google.com/maps/place/Shree+Vishal+Tent+Palace/@26.8720184,75.7905572,17z",
-  osm: "https://www.openstreetmap.org/?mlat=26.8720184&mlon=75.7905572#map=17/26.8720184/75.7905572",
-  embed:
-    "https://www.openstreetmap.org/export/embed.html?bbox=75.7805572%2C26.8620184%2C75.8005572%2C26.8820184&layer=mapnik&marker=26.8720184%2C75.7905572",
+    "https://www.google.com/maps/place/Shree+Vishal+Tent+Palace/@26.8720184,75.7905572,17z/data=!3m1!4b1!4m6!3m5!1s0x396db5ccb392cc9d:0x1b82ec5137b4b0d5!8m2!3d26.8720184!4d75.7905572",
 } as const;
+
+export const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/sarthakrules21@gmail.com";
+export const INQUIRY_SUBJECT = "New inquiry — SVTP Events";
 
 export const NAV = [
   { href: "/weddings", label: "Weddings" },
@@ -336,18 +342,6 @@ export const processSteps = [
   },
 ] as const;
 
-export const compositeNotes = [
-  {
-    text: "The mandap held the morning quietly. Marigold, a low canopy, and enough hush that the pheras could be followed from the family seats.",
-  },
-  {
-    text: "Guests found water, their seats, and the way back to the tent without being herded. That is the part of the weekend people still describe.",
-  },
-  {
-    text: "The sangeet felt like a room rather than a stage set down in a field. The light came down. The music had somewhere to sit.",
-  },
-] as const;
-
 export const faqs = [
   {
     q: "How early should a family begin?",
@@ -363,15 +357,15 @@ export const faqs = [
   },
   {
     q: "What separates the three packages?",
-    a: "Nivaas is one ceremony. Darbar is a full wedding day or a large celebration, from procession to reception. Rajmahal is a multi-day weekend with hospitality and one director across sangeet, wedding, and reception. Fees are quoted after a conversation. They are not listed here.",
+    a: "Nivaas is one ceremony. Darbar is a full wedding day or a large celebration, from procession to reception. Rajmahal is a multi-day weekend with hospitality and one director across sangeet, wedding, and reception. Fees are quoted after a conversation about the ground, the rites, and the season.",
   },
   {
     q: "How are monsoon and summer dates handled?",
     a: "Winter is the crowded season. Summer needs shade, water, and a later evening. Monsoon needs a tent that can take rain, covered guest paths, and a ceremony plan if the sky opens. The season is part of the design, which is why the planner asks for it.",
   },
   {
-    q: "Does this form send the inquiry?",
-    a: "No. The form checks the note and shows it back on this page. It does not send email or a message, and it does not store the note on a server. A telephone number is not published here because none was confirmed from the public listing.",
+    q: "How does an inquiry reach the house?",
+    a: "The form sends the note to Shree Vishal Tent Palace. You can also call +91 9982257338, write to sarthakrules21@gmail.com, or send the same details on WhatsApp.",
   },
 ] as const;
 

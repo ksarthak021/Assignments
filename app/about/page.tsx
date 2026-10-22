@@ -42,9 +42,8 @@ export default function AboutPage() {
               backdrop. Guests feel it when they arrive. The couple feel it when the noise drops.
             </p>
             <p>
-              This site does not invent a founding year, an owner’s name, or a tally of weddings.
-              Those details were not established from the public listing. What is published is the
-              place, and a practice built around tents, mandaps, and direction.
+              The house works in canvas and stone: a tent for the week, a courtyard for the rite,
+              and direction that keeps both in order.
             </p>
           </div>
           </Reveal>
@@ -106,24 +105,23 @@ export default function AboutPage() {
       <section className="section section-maroon">
         <div className="wrap split">
           <div>
-            <p className="kicker">Where the pin sits</p>
+            <p className="kicker">Visit</p>
             <h2>
               {BRAND.city}, {BRAND.region}.
             </h2>
           </div>
           <div>
             <p>
-              The published Google Maps pin is {BRAND.lat}, {BRAND.lng}. OpenStreetMap reads that
-              point as the {BRAND.area} area of Jaipur, postal code {BRAND.postalCode}. That is a
-              reading of the pin, not a street address. A house number, telephone, and opening hours
-              were not confirmed, so they are not listed.
+              {BRAND.established} is at {BRAND.address}. Call{" "}
+              <a href={BRAND.phoneTel}>{BRAND.phone}</a> or write to{" "}
+              <a href={BRAND.emailMailto}>{BRAND.email}</a>.
             </p>
             <div className="actions">
               <a className="btn btn-light" href={MAP.google} rel="noreferrer">
-                Open the Google pin
+                Open in Google Maps
               </a>
               <Link className="btn btn-line-light" href="/contact">
-                Inquiry and map
+                Write an inquiry
               </Link>
             </div>
           </div>

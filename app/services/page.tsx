@@ -47,8 +47,8 @@ export default function ServicesPage() {
             <p className="kicker">Packages</p>
             <h2>Nivaas, Darbar, Rajmahal.</h2>
             <p className="lede">
-              Three plans, deliberately unlike. Fees are quoted after a conversation about the
-              ground, the rites, and the season. They are not printed here.
+              Three plans, deliberately unlike. Fees follow a conversation about the ground, the
+              rites, and the season.
             </p>
           </div>
           </Reveal>

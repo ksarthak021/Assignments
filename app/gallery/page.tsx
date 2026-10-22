@@ -21,7 +21,7 @@ export default function GalleryPage() {
             Rooms, flowers, <em>and evening light.</em>
           </>
         }
-        lede="Filter by weddings, tents, décor, or evenings. Open any photograph to look closely. These are freely licensed studies of the craft, not a record of SVTP commissions."
+        lede="Filter by weddings, tents, décor, or evenings. Open any photograph to look closely."
       />
       <section className="section">
         <div className="wrap">

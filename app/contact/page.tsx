@@ -6,8 +6,8 @@ import { BRAND, MAP, pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta(
   "/contact",
-  "Inquiry and map",
-  "Write an inquiry to SVTP Events, Shree Vishal Tent Palace in Jaipur. The form stays on this page. A map marks the published pin.",
+  "Inquiry",
+  "Write to Shree Vishal Tent Palace in Jaipur. Call, email, WhatsApp, or open the house on Google Maps.",
 );
 
 export default function ContactPage() {
@@ -23,7 +23,7 @@ export default function ContactPage() {
             Begin with the day <em>you have in mind.</em>
           </>
         }
-        lede="Share the gathering, a way to write back, and whatever you already know about guests and season. The form does not send the note anywhere."
+        lede="Share the gathering, a way to write back, and whatever you already know about guests and season."
       />
 
       <section className="section" id="inquiry">
@@ -31,7 +31,7 @@ export default function ContactPage() {
           <Reveal>
           <div>
             <p className="kicker">Inquiry</p>
-            <h2>A note, checked on this page.</h2>
+            <h2>Write to the house.</h2>
             <Suspense fallback={<p className="lede">Opening the inquiry…</p>}>
               <InquiryForm />
             </Suspense>
@@ -39,56 +39,43 @@ export default function ContactPage() {
           </Reveal>
           <Reveal as="aside" className="contact-side" delay={100}>
             <div className="facts">
-              <p className="kicker">Confirmed</p>
+              <p className="kicker">Visit</p>
               <h3>{BRAND.established}</h3>
               <dl>
                 <div>
-                  <dt>Also named here</dt>
+                  <dt>Also named</dt>
                   <dd>{BRAND.name}</dd>
                 </div>
                 <div>
-                  <dt>City</dt>
+                  <dt>Address</dt>
+                  <dd>{BRAND.address}</dd>
+                </div>
+                <div>
+                  <dt>Phone</dt>
                   <dd>
-                    {BRAND.city}, {BRAND.region}, India
+                    <a href={BRAND.phoneTel}>{BRAND.phone}</a>
                   </dd>
                 </div>
                 <div>
-                  <dt>Map pin</dt>
+                  <dt>Email</dt>
                   <dd>
-                    {BRAND.lat}, {BRAND.lng}
+                    <a href={BRAND.emailMailto}>{BRAND.email}</a>
                   </dd>
                 </div>
                 <div>
-                  <dt>Map area</dt>
+                  <dt>WhatsApp</dt>
                   <dd>
-                    {BRAND.area}, {BRAND.postalCode}. Read from OpenStreetMap at the published pin.
-                    Not a street address.
+                    <a href={BRAND.whatsapp} rel="noreferrer">
+                      Message the house
+                    </a>
                   </dd>
-                </div>
-                <div>
-                  <dt>Phone and hours</dt>
-                  <dd>Not listed. They were not confirmed from the public Google listing.</dd>
                 </div>
               </dl>
-              <p>
-                <a href={MAP.google} rel="noreferrer">
-                  Google Maps listing
-                </a>
-                <br />
-                <a href={MAP.osm} rel="noreferrer">
-                  OpenStreetMap
-                </a>
-              </p>
             </div>
-            <iframe
-              className="map-frame"
-              title="Map of the Shree Vishal Tent Palace pin in Jaipur"
-              src={MAP.embed}
-              loading="lazy"
-            />
-            <p className="note">
-              If the map does not load, the coordinates and the links above still locate the pin.
-            </p>
+            <a className="map-link" href={MAP.google} rel="noreferrer">
+              <span>Google Maps</span>
+              <strong>Shree Vishal Tent Palace</strong>
+            </a>
           </Reveal>
         </div>
       </section>

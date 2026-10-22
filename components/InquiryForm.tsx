@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent, type MouseEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import {
+  BRAND,
   EVENT_TYPES,
   GUEST_RANGES,
+  INQUIRY_ENDPOINT,
+  INQUIRY_SUBJECT,
   SEASONS,
   packageById,
   packages,
@@ -52,6 +55,41 @@ function validate(values: Values): Errors {
   return errors;
 }
 
+function packageName(packageId: string) {
+  return packageById(packageId)?.name ?? "";
+}
+
+function inquiryBody(values: Values) {
+  return {
+    name: values.name.trim(),
+    email: values.email.trim(),
+    phone: values.phone.trim(),
+    gathering: values.eventType,
+    guests: values.guests,
+    season: values.season,
+    package: packageName(values.packageId),
+    note: values.message.trim(),
+    subject: INQUIRY_SUBJECT,
+    _subject: INQUIRY_SUBJECT,
+  };
+}
+
+function whatsappHref(values: Values) {
+  const plan = packageName(values.packageId);
+  const text = [
+    INQUIRY_SUBJECT,
+    `Name: ${values.name.trim()}`,
+    `Email: ${values.email.trim()}`,
+    `Phone: ${values.phone.trim() || "Not given"}`,
+    `Gathering: ${values.eventType}`,
+    `Guests: ${values.guests || "Not given"}`,
+    `Season: ${values.season || "Not given"}`,
+    `Package: ${plan || "Not chosen"}`,
+    `Note: ${values.message.trim() || "No note added"}`,
+  ].join("\n");
+  return `${BRAND.whatsapp}?text=${encodeURIComponent(text)}`;
+}
+
 export function InquiryForm() {
   const params = useSearchParams();
   const eventParam = params.get("event");
@@ -60,6 +98,8 @@ export function InquiryForm() {
   const packageParam = params.get("package");
   const [values, setValues] = useState<Values>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
   const [submitted, setSubmitted] = useState<Values | null>(null);
 
   useEffect(() => {
@@ -88,30 +128,57 @@ export function InquiryForm() {
 
   function update<K extends keyof Values>(key: K, value: Values[K]) {
     setValues((current) => ({ ...current, [key]: value }));
+    setSendError(false);
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  function focusFirst(nextErrors: Errors) {
+    const first = Object.keys(nextErrors)[0];
+    if (first) document.getElementById(first)?.focus();
+    return Boolean(first);
+  }
+
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
-    const first = Object.keys(nextErrors)[0];
-    if (first) {
-      document.getElementById(first)?.focus();
-      return;
+    if (focusFirst(nextErrors)) return;
+
+    setSending(true);
+    setSendError(false);
+    try {
+      const response = await fetch(INQUIRY_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(inquiryBody(values)),
+      });
+      const body = (await response.json().catch(() => null)) as { success?: boolean | string } | null;
+      const accepted = body?.success === true || body?.success === "true";
+      if (!response.ok || !accepted) throw new Error("Inquiry was not accepted.");
+      setSubmitted(values);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSending(false);
     }
-    setSubmitted(values);
+  }
+
+  function onWhatsApp(event: MouseEvent<HTMLAnchorElement>) {
+    const nextErrors = validate(values);
+    setErrors(nextErrors);
+    if (focusFirst(nextErrors)) event.preventDefault();
   }
 
   if (submitted) {
     const plan = packageById(submitted.packageId);
     return (
       <div className="form-success" role="status">
-        <p className="kicker">Held on this page</p>
-        <h2>Your note stays in this browser.</h2>
+        <p className="kicker">Thank you</p>
+        <h2>The house has your inquiry.</h2>
         <p>
-          Nothing was emailed, messaged, or stored on a server. This page only checked the form and
-          showed it back to you. To reach Shree Vishal Tent Palace, use the map pin. A telephone
-          number is not listed because none was confirmed.
+          Your note was sent to {BRAND.established}. We will write back at {submitted.email.trim()}.
         </p>
         <dl className="summary">
           <div>
@@ -147,15 +214,20 @@ export function InquiryForm() {
             <dd>{submitted.message.trim() || "No note added"}</dd>
           </div>
         </dl>
-        <button
-          type="button"
-          className="btn btn-fill"
-          onClick={() => {
-            setSubmitted(null);
-          }}
-        >
-          Edit the note
-        </button>
+        <div className="actions">
+          <a className="btn btn-fill" href={whatsappHref(submitted)} target="_blank" rel="noreferrer">
+            Send on WhatsApp
+          </a>
+          <button
+            type="button"
+            className="btn"
+            onClick={() => {
+              setSubmitted(null);
+            }}
+          >
+            Write another note
+          </button>
+        </div>
       </div>
     );
   }
@@ -167,7 +239,7 @@ export function InquiryForm() {
     <form className="inquiry" onSubmit={onSubmit} noValidate>
       {errorList.length > 0 ? (
         <div className="form-banner" role="alert">
-          <p>The note needs a few corrections before it can be shown back.</p>
+          <p>The inquiry needs a few corrections before it can be sent.</p>
           <ul>
             {errorList.map((item) => (
               <li key={item}>{item}</li>
@@ -181,6 +253,12 @@ export function InquiryForm() {
             : "The form is empty. The planner on the home page can fill the gathering, guest count, season, and package."}
         </p>
       )}
+
+      {sendError ? (
+        <div className="form-banner" role="alert">
+          <p>The inquiry was not sent. Please try again, or send the same details on WhatsApp.</p>
+        </div>
+      ) : null}
 
       <div className="form-grid">
         <label className={`field${errors.name ? " has-error" : ""}`} htmlFor="name">
@@ -308,9 +386,14 @@ export function InquiryForm() {
         </label>
       </div>
 
-      <button type="submit" className="btn btn-fill">
-        Show my note
-      </button>
+      <div className="actions">
+        <button type="submit" className="btn btn-fill" disabled={sending}>
+          {sending ? "Sending…" : "Send the inquiry"}
+        </button>
+        <a className="btn" href={whatsappHref(values)} target="_blank" rel="noreferrer" onClick={onWhatsApp}>
+          Send on WhatsApp
+        </a>
+      </div>
     </form>
   );
 }

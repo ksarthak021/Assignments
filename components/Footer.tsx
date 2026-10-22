@@ -24,28 +24,25 @@ export function Footer() {
           </ul>
         </nav>
         <div>
-          <p className="kicker">Map pin</p>
+          <p className="kicker">Visit</p>
           <p>
-            {BRAND.lat}, {BRAND.lng}
+            <a href={BRAND.phoneTel}>{BRAND.phone}</a>
             <br />
-            {BRAND.city}, {BRAND.region}
+            <a href={BRAND.emailMailto}>{BRAND.email}</a>
+          </p>
+          <p>
+            {BRAND.streetAddress}
+            <br />
+            {BRAND.city} {BRAND.postalCode}
           </p>
           <p>
             <a href={MAP.google} rel="noreferrer">
               Google Maps
             </a>
-            <br />
-            <a href={MAP.osm} rel="noreferrer">
-              OpenStreetMap
-            </a>
           </p>
         </div>
       </div>
       <div className="wrap footer-meta">
-        <p>
-          Photographs are freely licensed studies from Unsplash. They describe the craft — mandap,
-          tent, flower, palace light — and are not a catalogue of SVTP commissions.
-        </p>
         <p>© {new Date().getFullYear()} {BRAND.name}</p>
       </div>
     </footer>
