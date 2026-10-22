@@ -723,19 +723,10 @@ a { color: inherit; }
 }
 .js .reveal.is-in { opacity: 1; transform: none; }
 
-@supports (animation-timeline: view()) {
-  .js .hero-media,
-  .js .band > img {
-    height: 110%;
-    top: -5%;
-    animation: media-drift linear both;
-    animation-timeline: view();
-    animation-range: cover 0% cover 100%;
-  }
-}
-@keyframes media-drift {
-  from { transform: translate3d(0, -2%, 0); }
-  to { transform: translate3d(0, 2.5%, 0); }
+.js .hero-media,
+.js .band > img {
+  height: 110%;
+  top: -5%;
 }
 
 .js .hero-copy > *,
