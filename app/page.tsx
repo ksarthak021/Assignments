@@ -117,10 +117,10 @@ export default function HomePage() {
           </Reveal>
           <div className="feature-grid">
             <figure className="feature-card span-tall">
-              <img src={asset("/images/pheras.jpg")} alt="A couple seated beside a ceremonial fire with family gathered close." />
+              <img src={asset("/images/couple-florals.png")} alt="A couple seated under a white floral ceiling with chandeliers and candle stands." />
               <figcaption>
                 <span>Weddings</span>
-                Beside the fire
+                Under the flowers
               </figcaption>
             </figure>
             <figure className="feature-card">
@@ -131,7 +131,7 @@ export default function HomePage() {
               </figcaption>
             </figure>
             <figure className="feature-card">
-              <img src={asset("/images/wedding-stage.jpg")} alt="A wedding stage dressed in white flowers and warm light." />
+              <img src={asset("/images/stage-monogram.png")} alt="A pink and white stage with a monogram, floral pillars, and carved jharokha niches." />
               <figcaption>
                 <span>Décor</span>
                 A stage with proportion

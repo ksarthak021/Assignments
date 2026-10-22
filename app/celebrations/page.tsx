@@ -55,7 +55,7 @@ export default function CelebrationsPage() {
       <section className="section section-paper">
         <div className="wrap feature-grid">
           <figure className="feature-card span-tall">
-            <img src={asset("/images/stage-celebration.jpg")} alt="A floral stage prepared for a celebration, with warm light." />
+            <img src={asset("/images/stage-monogram.png")} alt="A pink and white stage with a monogram, floral pillars, and carved jharokha niches." />
             <figcaption>
               <span>Parties</span>
               A stage the night can use

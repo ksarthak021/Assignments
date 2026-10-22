@@ -579,7 +579,7 @@ a { color: inherit; }
   text-align: left;
   cursor: pointer;
 }
-.tile img { width: 100%; object-fit: cover; background: var(--ivory-2); }
+.tile img { width: 100%; height: auto; object-fit: contain; background: var(--ivory-2); }
 .tile-tall img { aspect-ratio: 3 / 4; }
 .tile-wide img { aspect-ratio: 4 / 5; }
 .tile-std img { aspect-ratio: 1; }
