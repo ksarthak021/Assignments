@@ -2,9 +2,9 @@ import { LOCATION } from '../lib/constants'
 
 export function About() {
   return (
-    <div className="section">
-      <div className="panel about-panel">
-        <div className="about-panel__media">
+    <section className="section" id="about">
+      <div className="shell about-panel">
+        <figure className="about-panel__media">
           <img
             src="/images/about-care.jpg"
             alt="Garments being carefully sorted for laundry care"
@@ -12,7 +12,7 @@ export function About() {
             height={733}
             loading="lazy"
           />
-        </div>
+        </figure>
         <div className="about-panel__copy">
           <p className="eyebrow">About Northline</p>
           <h2>Local laundry care rooted in Pushkar.</h2>
@@ -26,11 +26,11 @@ export function About() {
             Whether you are near the Brahma Temple or along Ajmer Road, we
             collect on your schedule and keep you updated until delivery.
           </p>
-          <a className="btn btn--yellow" href="#book">
-            Book your first pickup
+          <a className="btn btn--purple" href="#book">
+            Book your first pickup <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

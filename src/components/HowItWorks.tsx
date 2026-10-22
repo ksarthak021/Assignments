@@ -2,7 +2,7 @@ const steps = [
   {
     num: '01',
     title: 'Book a window',
-    text: 'Tell us your Pushkar address, service, and preferred slot, and we confirm by WhatsApp or call.',
+    text: 'Tell us your Pushkar address, service, and preferred slot — we confirm by WhatsApp or call.',
   },
   {
     num: '02',
@@ -18,11 +18,15 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <div className="section">
-      <div>
+    <section className="section" id="how">
+      <div className="shell panel how-panel">
         <div className="section-head">
           <p className="eyebrow">How it works</p>
           <h2>Three steps from pile to polish.</h2>
+          <p className="lead">
+            Simple booking, careful handling, and delivery that respects Pushkar
+            schedules.
+          </p>
         </div>
         <div className="steps">
           {steps.map((step) => (
@@ -34,6 +38,6 @@ export function HowItWorks() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

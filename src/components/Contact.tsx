@@ -40,7 +40,7 @@ export function Contact() {
   }
 
   return (
-    <div className="section">
+    <section className="section" id="contact">
       <div className="shell panel contact-panel contact-panel--map">
         <div>
           <p className="eyebrow">Contact</p>
@@ -96,7 +96,7 @@ export function Contact() {
             </p>
             <button
               type="button"
-              className="btn btn--navy"
+              className="btn btn--purple"
               onClick={() => {
                 setSuccess(false)
                 setValues({ name: '', phone: '', message: '' })
@@ -136,12 +136,12 @@ export function Contact() {
               />
               {errors.message ? <span className="field-error">{errors.message}</span> : null}
             </label>
-            <button type="submit" className="btn btn--yellow btn--block">
-              Send message
+            <button type="submit" className="btn btn--purple btn--block">
+              Send message <span aria-hidden="true">→</span>
             </button>
           </form>
         )}
       </div>
-    </div>
+    </section>
   )
 }

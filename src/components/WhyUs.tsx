@@ -15,8 +15,8 @@ const points = [
 
 export function WhyUs() {
   return (
-    <div className="section">
-      <div className="shell panel why-panel">
+    <section className="section" id="why">
+      <div className="shell why-panel">
         <div className="why-panel__copy">
           <p className="eyebrow">Why Northline</p>
           <h2>Built for Pushkar’s rhythm.</h2>
@@ -39,6 +39,6 @@ export function WhyUs() {
           />
         </figure>
       </div>
-    </div>
+    </section>
   )
 }

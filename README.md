@@ -2,11 +2,7 @@
 
 Launch site for **Northline**, a laundry & dry cleaning service in Pushkar, Rajasthan, India.
 
-Pickup, wash & fold, express, and dry cleaning with online booking and order tracking.
-
-## Design
-
-Bright white panels on a soft blue canvas, deep navy type, yellow primary CTAs, and laundry photography aligned to a commercial marketing layout.
+Soft lavender marketing layout with purple accents, white rounded panels, and working booking, tracking, and contact flows.
 
 ## Run locally
 
@@ -28,4 +24,4 @@ Open the Vite URL (usually `http://localhost:5173`).
 
 ## Stack
 
-Vite + React 19 + TypeScript · Plus Jakarta Sans · local photography
+Vite + React 19 + TypeScript · Fraunces + Manrope · local photography

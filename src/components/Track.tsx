@@ -39,8 +39,8 @@ export function Track() {
   }
 
   return (
-    <div className="section">
-      <div className="panel track-panel">
+    <section className="section" id="track">
+      <div className="shell panel track-panel">
         <div>
           <p className="eyebrow">Track order</p>
           <h2>See where your laundry is.</h2>
@@ -69,7 +69,7 @@ export function Track() {
               placeholder="e.g. NL-1042"
               autoComplete="off"
             />
-            <button type="submit" className="btn btn--navy">
+            <button type="submit" className="btn btn--purple">
               Track
             </button>
           </form>
@@ -91,6 +91,6 @@ export function Track() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   )
 }

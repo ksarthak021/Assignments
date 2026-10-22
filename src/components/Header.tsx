@@ -5,8 +5,8 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
   { href: '#pricing', label: 'Pricing' },
+  { href: '#areas', label: 'Areas' },
   { href: '#gallery', label: 'Gallery' },
-  { href: '#track', label: 'Track' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ]
@@ -16,40 +16,16 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const scroller = document.getElementById('snap-scroller')
-    const onScroll = () => {
-      const y = scroller ? scroller.scrollTop : window.scrollY
-      setScrolled(y > 10)
-    }
+    const onScroll = () => setScrolled(window.scrollY > 12)
     onScroll()
-    scroller?.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      scroller?.removeEventListener('scroll', onScroll)
-      window.removeEventListener('scroll', onScroll)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
-
-  function goTo(href: string) {
-    setOpen(false)
-    if (!href.startsWith('#')) return
-    const id = href.slice(1)
-    const target = document.getElementById(id)
-    const panel = target?.closest('.snap-panel') as HTMLElement | null
-    ;(panel ?? target)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
 
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="shell site-header__inner">
-        <a
-          className="brand"
-          href="#top"
-          onClick={(e) => {
-            e.preventDefault()
-            goTo('#top')
-          }}
-        >
+        <a className="brand" href="#top" onClick={() => setOpen(false)}>
           <span className="brand__mark" aria-hidden="true" />
           Northline
         </a>
@@ -73,26 +49,12 @@ export function Header() {
           aria-label="Primary"
         >
           {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => {
-                e.preventDefault()
-                goTo(link.href)
-              }}
-            >
+            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
               {link.label}
             </a>
           ))}
-          <a
-            className="btn btn--navy btn--sm"
-            href="#book"
-            onClick={(e) => {
-              e.preventDefault()
-              goTo('#book')
-            }}
-          >
-            Book a Pickup
+          <a className="btn btn--purple btn--sm" href="#book" onClick={() => setOpen(false)}>
+            Book a Pickup <span aria-hidden="true">→</span>
           </a>
         </nav>
       </div>

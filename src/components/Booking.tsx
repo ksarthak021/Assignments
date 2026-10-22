@@ -53,7 +53,7 @@ export function Booking() {
 
   if (reference) {
     return (
-      <div className="section">
+      <section className="section" id="book">
         <div className="shell panel contact-panel contact-panel--success">
           <div className="success-state" role="status">
             <span className="success-state__icon" aria-hidden="true">
@@ -66,12 +66,12 @@ export function Booking() {
               shortly — you can track it anytime below.
             </p>
             <div className="success-actions">
-              <a className="btn btn--yellow" href="#track">
-                Track this order
+              <a className="btn btn--purple" href="#track">
+                Track this order <span aria-hidden="true">→</span>
               </a>
               <button
                 type="button"
-                className="btn btn--navy"
+                className="btn btn--ghost"
                 onClick={() => {
                   setReference(null)
                   setValues(initial)
@@ -83,12 +83,12 @@ export function Booking() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     )
   }
 
   return (
-    <div className="section">
+    <section className="section" id="book">
       <div className="shell panel contact-panel">
         <div>
           <p className="eyebrow">Book a pickup</p>
@@ -147,6 +147,8 @@ export function Booking() {
               <option value="express">Express wash</option>
               <option value="dry-clean">Dry cleaning</option>
               <option value="press">Press only</option>
+              <option value="linen">Household linen</option>
+              <option value="guest-house">Guest-house load</option>
             </select>
           </label>
           <div className="form-row">
@@ -184,11 +186,11 @@ export function Booking() {
               placeholder="Gate instructions, hang vs fold…"
             />
           </label>
-          <button type="submit" className="btn btn--yellow btn--block">
-            Confirm pickup
+          <button type="submit" className="btn btn--purple btn--block">
+            Confirm pickup <span aria-hidden="true">→</span>
           </button>
         </form>
       </div>
-    </div>
+    </section>
   )
 }

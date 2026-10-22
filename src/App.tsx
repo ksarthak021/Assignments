@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react'
 import { About } from './components/About'
+import { Areas } from './components/Areas'
 import { Booking } from './components/Booking'
+import { CareNotes } from './components/CareNotes'
 import { Contact } from './components/Contact'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
@@ -11,25 +12,10 @@ import { HowItWorks } from './components/HowItWorks'
 import { Pricing } from './components/Pricing'
 import { Services } from './components/Services'
 import { Stats } from './components/Stats'
+import { Support } from './components/Support'
 import { Testimonials } from './components/Testimonials'
 import { Track } from './components/Track'
 import { WhyUs } from './components/WhyUs'
-
-function SnapCard({
-  id,
-  children,
-  className = '',
-}: {
-  id?: string
-  children: ReactNode
-  className?: string
-}) {
-  return (
-    <section className={`snap-panel${className ? ` ${className}` : ''}`} id={id}>
-      <div className="snap-card">{children}</div>
-    </section>
-  )
-}
 
 function App() {
   return (
@@ -37,61 +23,28 @@ function App() {
       <a className="skip-link" href="#about">
         Skip to content
       </a>
-      <Header />
-      <main className="snap-scroller" id="snap-scroller">
-        <SnapCard id="top" className="snap-panel--hero">
+      <div className="page">
+        <Header />
+        <main>
           <Hero />
-        </SnapCard>
-
-        <SnapCard id="stats">
           <Stats />
-        </SnapCard>
-
-        <SnapCard id="services">
           <Services />
-        </SnapCard>
-
-        <SnapCard id="how">
+          <Support />
           <HowItWorks />
-        </SnapCard>
-
-        <SnapCard id="pricing">
           <Pricing />
-        </SnapCard>
-
-        <SnapCard id="about">
-          <About />
-        </SnapCard>
-
-        <SnapCard id="why">
           <WhyUs />
-        </SnapCard>
-
-        <SnapCard id="reviews">
-          <Testimonials />
-        </SnapCard>
-
-        <SnapCard id="gallery">
+          <Areas />
+          <CareNotes />
+          <About />
           <Gallery />
-        </SnapCard>
-
-        <SnapCard id="faq">
+          <Testimonials />
           <FAQ />
-        </SnapCard>
-
-        <SnapCard id="book">
           <Booking />
-        </SnapCard>
-
-        <SnapCard id="track">
           <Track />
-        </SnapCard>
-
-        <SnapCard id="contact">
           <Contact />
-          <Footer />
-        </SnapCard>
-      </main>
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

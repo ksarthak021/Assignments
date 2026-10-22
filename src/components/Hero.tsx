@@ -1,51 +1,47 @@
 export function Hero() {
   return (
-    <div className="hero" aria-labelledby="hero-title">
-      <div className="hero-card">
-        <div className="hero-card__copy">
-          <p className="eyebrow">Fresh clothes for Pushkar days</p>
-          <h1 id="hero-title">Laundry care that keeps pace with temple town life.</h1>
-          <p className="hero-card__lead">
-            Northline picks up across Pushkar, then washes or dry cleans with
-            care and returns your clothes hang-ready, so you can focus on
-            guests, guest houses, and the ghats.
-          </p>
-          <div className="hero-card__actions">
-            <a className="btn btn--yellow" href="#book">
-              Book a Pickup
-            </a>
-            <a className="btn-link" href="#how">
-              <span className="play" aria-hidden="true" />
-              How it Works
-            </a>
+    <section className="hero" id="top" aria-labelledby="hero-title">
+      <div className="shell">
+        <div className="hero-panel">
+          <div className="hero-panel__copy">
+            <p className="eyebrow">Laundry & dry cleaning · Pushkar</p>
+            <h1 id="hero-title">Fresh clothes, thoughtful care.</h1>
+            <p className="hero-panel__lead">
+              Northline picks up across Pushkar, washes or dry cleans with care,
+              and returns hang-ready clothes — so guest houses, homes, and stays
+              can focus on the day ahead.
+            </p>
+            <div className="hero-panel__actions">
+              <a className="btn btn--purple" href="#book">
+                Book a Pickup <span aria-hidden="true">→</span>
+              </a>
+              <a className="btn-link" href="#how">
+                <span className="play" aria-hidden="true" />
+                How it works
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="hero-card__media">
-          <img
-            src="/images/hero-basket.jpg"
-            alt="Team member holding a basket of freshly cleaned white laundry"
-            width={1400}
-            height={2100}
-            fetchPriority="high"
-          />
-          <div className="trust-badge">
-            <strong>8+</strong>
-            <span>Years serving Pushkar</span>
+          <div className="hero-panel__media">
+            <img
+              src="/images/hero-basket.jpg"
+              alt="Team member holding a basket of freshly cleaned white laundry"
+              width={1400}
+              height={2100}
+              fetchPriority="high"
+            />
+            <aside className="trust-chip">
+              <span className="trust-chip__icon" aria-hidden="true">
+                ✓
+              </span>
+              <div>
+                <strong>8+ years</strong>
+                <span>Trusted laundry care in Pushkar</span>
+              </div>
+            </aside>
           </div>
-          <aside className="simplify-card">
-            <h2>Laundry, simplified.</h2>
-            <ul>
-              <li>Doorstep pickup & delivery</li>
-              <li>Wash, press & dry cleaning</li>
-              <li>On-time return in Pushkar</li>
-            </ul>
-            <a className="simplify-card__cta" href="#book">
-              Get started <span aria-hidden="true">→</span>
-            </a>
-          </aside>
         </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -15,11 +15,15 @@ const faqs = [
     q: 'Can I track my order?',
     a: 'Yes. Use your reference number (for example NL-1042) on the Track section for live status stages.',
   },
+  {
+    q: 'Do you handle guest-house linen?',
+    a: 'Yes — sheets, towels, and duvet covers on scheduled pickups. Ask about Stay Ready if you need four windows a month.',
+  },
 ]
 
 export function FAQ() {
   return (
-    <div className="section">
+    <section className="section" id="faq">
       <div className="shell panel faq-panel">
         <div className="section-head">
           <p className="eyebrow">FAQ</p>
@@ -34,6 +38,6 @@ export function FAQ() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
