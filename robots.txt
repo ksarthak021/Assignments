@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://ksarthak021.github.io/Assignments/sitemap.xml
