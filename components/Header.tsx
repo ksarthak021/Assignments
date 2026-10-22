@@ -136,7 +136,7 @@ export function Header() {
             </Link>
           ))}
         </nav>
-        <Link className="btn btn-fill nav-drawer-cta" href="/contact#inquiry">
+        <Link className="btn btn-light nav-drawer-cta" href="/contact#inquiry">
           Inquire
         </Link>
       </div>

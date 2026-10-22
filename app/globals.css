@@ -179,10 +179,14 @@ a { color: inherit; }
 .site-header.is-open,
 .site-header.is-open.is-solid {
   z-index: 80;
-  color: var(--ink);
-  background: var(--ivory);
+  color: var(--ivory);
+  background: transparent;
   box-shadow: none;
   backdrop-filter: none;
+}
+.site-header.is-open .wordmark-text,
+.site-header.is-open .menu-toggle {
+  text-shadow: 0 1px 10px rgba(16, 6, 8, 0.55);
 }
 .site-header:not(.is-solid) .wordmark-text,
 .site-header:not(.is-solid) .nav-desktop a,
@@ -280,10 +284,11 @@ a { color: inherit; }
   flex-direction: column;
   width: min(320px, calc(100vw - 56px));
   height: 100dvh;
-  padding: calc(var(--header) + 8px) 22px 22px;
-  background: rgba(243, 238, 228, 0.16);
+  padding: calc(var(--header) + 16px) 24px 32px;
+  background: rgba(28, 10, 14, 0.66);
   color: var(--ivory);
-  backdrop-filter: blur(7px);
+  backdrop-filter: blur(36px);
+  border-left: 1px solid rgba(243, 238, 228, 0.2);
   box-shadow: none;
   transform: translateX(100%);
   visibility: hidden;
@@ -293,7 +298,7 @@ a { color: inherit; }
 .nav-drawer nav {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 8px;
   overflow: auto;
   flex: 1;
   min-height: 0;
@@ -301,16 +306,17 @@ a { color: inherit; }
 .nav-drawer nav a {
   display: flex;
   align-items: center;
-  min-height: 48px;
+  min-height: 56px;
+  padding: 4px 0;
   text-decoration: none;
   font-family: var(--font-display), serif;
-  font-size: 1.45rem;
+  font-size: 1.7rem;
   letter-spacing: -0.02em;
   color: var(--ivory);
-  text-shadow: 0 1px 10px rgba(16, 6, 8, 0.85);
+  text-shadow: none;
 }
 .nav-drawer nav a[aria-current="page"] { font-style: italic; color: var(--gold-2); }
-.nav-drawer-cta { width: 100%; margin-top: 12px; }
+.nav-drawer-cta { width: 100%; margin-top: 20px; }
 
 .hero {
   position: relative;
