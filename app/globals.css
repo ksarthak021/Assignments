@@ -19,7 +19,10 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header) + 16px);
+}
 
 body {
   margin: 0;
@@ -257,6 +260,7 @@ a { color: inherit; }
   min-height: 88svh;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   color: var(--ivory);
   background: var(--maroon-deep);
   padding: calc(var(--header) + 20px) 0 36px;
@@ -429,6 +433,7 @@ a { color: inherit; }
   min-height: 68svh;
   display: flex;
   align-items: flex-end;
+  overflow: hidden;
   color: var(--ivory);
   background: var(--maroon-deep);
 }
@@ -711,10 +716,41 @@ a { color: inherit; }
 
 .js .reveal {
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(16px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .js .reveal.is-in { opacity: 1; transform: none; }
+
+@supports (animation-timeline: view()) {
+  .js .hero-media,
+  .js .band > img {
+    height: 110%;
+    top: -5%;
+    animation: media-drift linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+@keyframes media-drift {
+  from { transform: translate3d(0, -2%, 0); }
+  to { transform: translate3d(0, 2.5%, 0); }
+}
+
+.js .hero-copy > *,
+.js .hero-aside {
+  animation: settle 0.78s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.js .hero-copy > *:nth-child(1) { animation-delay: 0.04s; }
+.js .hero-copy > *:nth-child(2) { animation-delay: 0.12s; }
+.js .hero-copy > *:nth-child(3) { animation-delay: 0.2s; }
+.js .hero-copy > *:nth-child(4) { animation-delay: 0.28s; }
+.js .hero-aside { animation-delay: 0.22s; }
+@keyframes settle {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
 
 @media (min-width: 700px) {
   .masonry { columns: 2; }
@@ -791,6 +827,15 @@ a { color: inherit; }
   .marquee-track span:nth-child(n + 6) { display: none; }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .site-header { transition: none; }
+  .js .hero-copy > *,
+  .js .hero-aside { animation: none; opacity: 1; transform: none; }
+  .js .hero-media,
+  .js .band > img {
+    animation: none;
+    transform: none;
+    top: 0;
+    height: 100%;
+  }
 }
 
 .page-enter { animation: rise 0.5s ease both; }

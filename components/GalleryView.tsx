@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { asset } from "@/lib/asset";
+import { Reveal } from "@/components/Reveal";
 import { gallery, galleryFilters, type GalleryCategory } from "@/lib/site";
 
 type Filter = (typeof galleryFilters)[number];
@@ -119,7 +120,7 @@ export function GalleryView() {
           {items.map((item, itemIndex) => {
             const broken = failed[item.src];
             return (
-              <figure key={item.src} className={`tile tile-${item.frame}`}>
+              <Reveal as="figure" key={item.src} className={`tile tile-${item.frame}`} delay={(itemIndex % 3) * 80}>
                 <button
                   type="button"
                   className="tile-button"
@@ -140,7 +141,7 @@ export function GalleryView() {
                     <strong>{item.title}</strong>
                   </span>
                 </button>
-              </figure>
+              </Reveal>
             );
           })}
         </div>

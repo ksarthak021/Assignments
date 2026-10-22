@@ -1,9 +1,21 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { createElement, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
-export function Reveal({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
+type RevealTag = "div" | "figure" | "article" | "blockquote" | "li" | "section" | "aside";
+
+export function Reveal({
+  children,
+  className = "",
+  as = "div",
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  as?: RevealTag;
+  delay?: number;
+}) {
+  const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -21,15 +33,21 @@ export function Reveal({ children, className = "" }: { children: ReactNode; clas
           observer.disconnect();
         }
       },
-      { threshold: 0.16, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
     );
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
-  return (
-    <div ref={ref} className={`reveal${visible ? " is-in" : ""} ${className}`.trim()}>
-      {children}
-    </div>
+  const style: CSSProperties | undefined = delay > 0 ? { transitionDelay: `${delay}ms` } : undefined;
+
+  return createElement(
+    as,
+    {
+      ref,
+      className: `reveal${visible ? " is-in" : ""} ${className}`.trim(),
+      style,
+    },
+    children,
   );
 }

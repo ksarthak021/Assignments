@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { Reveal } from "@/components/Reveal";
 import { asset } from "@/lib/asset";
 import { BRAND, MAP, pageMeta, processSteps } from "@/lib/site";
 
@@ -26,6 +27,7 @@ export default function AboutPage() {
 
       <section className="section">
         <div className="wrap about-grid">
+          <Reveal>
           <div className="prose">
             <p className="kicker">The house</p>
             <h2>Canvas, flower, and the order of a day.</h2>
@@ -45,35 +47,38 @@ export default function AboutPage() {
               place, and a practice built around tents, mandaps, and direction.
             </p>
           </div>
-          <figure className="about-photo">
+          </Reveal>
+          <Reveal as="figure" className="about-photo" delay={100}>
             <img
               src={asset("/images/city-palace.jpg")}
               alt="A red sandstone courtyard with arched galleries, in the manner of City Palace, Jaipur."
             />
             <figcaption>Palace courtyards are one of the grounds the house works in.</figcaption>
-          </figure>
+          </Reveal>
         </div>
       </section>
 
       <section className="section section-paper">
         <div className="wrap">
+          <Reveal>
           <div className="intro">
             <p className="kicker">Jaipur</p>
             <h2>Pink stone, and the tents beside it.</h2>
           </div>
+          </Reveal>
           <div className="jaipur-grid">
-            <figure>
+            <Reveal as="figure">
               <img src={asset("/images/amber.jpg")} alt="Sandstone fortifications and ramparts on a green hillside." />
               <figcaption>Hill forts in the sandstone country around the city.</figcaption>
-            </figure>
-            <figure>
+            </Reveal>
+            <Reveal as="figure" delay={90}>
               <img src={asset("/images/water-palace.jpg")} alt="A white palace standing in a wide body of water." />
               <figcaption>Palaces set in water, part of the city’s imagination of a room.</figcaption>
-            </figure>
-            <figure>
+            </Reveal>
+            <Reveal as="figure" delay={160}>
               <img src={asset("/images/palace-door.jpg")} alt="A tall carved wooden door set in a colourful palace wall." />
               <figcaption>Thresholds, colour, and the moment of arrival.</figcaption>
-            </figure>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -85,14 +90,14 @@ export default function AboutPage() {
             <h2>Listen, walk, draw, host.</h2>
           </div>
           <ol>
-            {processSteps.map((step) => (
-              <li key={step.numeral}>
+            {processSteps.map((step, index) => (
+              <Reveal as="li" key={step.numeral} delay={(index % 4) * 70}>
                 <span>{step.numeral}</span>
                 <div>
                   <h3>{step.title}</h3>
                   <p>{step.text}</p>
                 </div>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>

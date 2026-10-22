@@ -52,7 +52,7 @@ export default function WeddingsPage() {
             <Reveal className="chapter-media">
               <img src={asset(chapter.image)} alt={chapter.alt} />
             </Reveal>
-            <Reveal className="chapter-copy">
+            <Reveal className="chapter-copy" delay={100}>
               <p className="kicker">{chapter.numeral}</p>
               <h2>{chapter.title}</h2>
               <p>{chapter.text}</p>

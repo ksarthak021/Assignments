@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Hero } from "@/components/Hero";
+import { Reveal } from "@/components/Reveal";
 import { InquiryForm } from "@/components/InquiryForm";
 import { BRAND, MAP, pageMeta } from "@/lib/site";
 
@@ -27,6 +28,7 @@ export default function ContactPage() {
 
       <section className="section" id="inquiry">
         <div className="wrap contact-grid">
+          <Reveal>
           <div>
             <p className="kicker">Inquiry</p>
             <h2>A note, checked on this page.</h2>
@@ -34,7 +36,8 @@ export default function ContactPage() {
               <InquiryForm />
             </Suspense>
           </div>
-          <aside className="contact-side">
+          </Reveal>
+          <Reveal as="aside" className="contact-side" delay={100}>
             <div className="facts">
               <p className="kicker">Confirmed</p>
               <h3>{BRAND.established}</h3>
@@ -86,7 +89,7 @@ export default function ContactPage() {
             <p className="note">
               If the map does not load, the coordinates and the links above still locate the pin.
             </p>
-          </aside>
+          </Reveal>
         </div>
       </section>
     </main>
