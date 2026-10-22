@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { asset } from "@/lib/asset";
 import { gallery, galleryFilters, type GalleryCategory } from "@/lib/site";
 
 type Filter = (typeof galleryFilters)[number];
@@ -128,7 +129,7 @@ export function GalleryView() {
                     <span className="tile-fallback">This photograph could not be loaded.</span>
                   ) : (
                     <img
-                      src={item.src}
+                      src={asset(item.src)}
                       alt={item.alt}
                       loading="lazy"
                       onError={() => setFailed((current) => ({ ...current, [item.src]: true }))}
@@ -172,7 +173,7 @@ export function GalleryView() {
                   This photograph could not be loaded.
                 </p>
               ) : (
-                <img src={active.src} alt={active.alt} />
+                <img src={asset(active.src)} alt={active.alt} />
               )}
             </div>
             <p className="lightbox-caption">{active.alt}</p>

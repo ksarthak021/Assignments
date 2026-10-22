@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { asset } from "@/lib/asset";
 import { BRAND, MAP, pageMeta, processSteps } from "@/lib/site";
 
 export const metadata = pageMeta(
@@ -46,7 +47,7 @@ export default function AboutPage() {
           </div>
           <figure className="about-photo">
             <img
-              src="/images/city-palace.jpg"
+              src={asset("/images/city-palace.jpg")}
               alt="A red sandstone courtyard with arched galleries, in the manner of City Palace, Jaipur."
             />
             <figcaption>Palace courtyards are one of the grounds the house works in.</figcaption>
@@ -62,15 +63,15 @@ export default function AboutPage() {
           </div>
           <div className="jaipur-grid">
             <figure>
-              <img src="/images/amber.jpg" alt="Sandstone fortifications and ramparts on a green hillside." />
+              <img src={asset("/images/amber.jpg")} alt="Sandstone fortifications and ramparts on a green hillside." />
               <figcaption>Hill forts in the sandstone country around the city.</figcaption>
             </figure>
             <figure>
-              <img src="/images/water-palace.jpg" alt="A white palace standing in a wide body of water." />
+              <img src={asset("/images/water-palace.jpg")} alt="A white palace standing in a wide body of water." />
               <figcaption>Palaces set in water, part of the city’s imagination of a room.</figcaption>
             </figure>
             <figure>
-              <img src="/images/palace-door.jpg" alt="A tall carved wooden door set in a colourful palace wall." />
+              <img src={asset("/images/palace-door.jpg")} alt="A tall carved wooden door set in a colourful palace wall." />
               <figcaption>Thresholds, colour, and the moment of arrival.</figcaption>
             </figure>
           </div>

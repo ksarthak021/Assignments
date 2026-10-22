@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { PlanFlow } from "@/components/PlanFlow";
 import { Reveal } from "@/components/Reveal";
+import { asset } from "@/lib/asset";
 import {
   compositeNotes,
   homeMeta,
@@ -116,21 +117,21 @@ export default function HomePage() {
           </Reveal>
           <div className="feature-grid">
             <figure className="feature-card span-tall">
-              <img src="/images/pheras.jpg" alt="A couple seated beside a ceremonial fire with family gathered close." />
+              <img src={asset("/images/pheras.jpg")} alt="A couple seated beside a ceremonial fire with family gathered close." />
               <figcaption>
                 <span>Weddings</span>
                 Beside the fire
               </figcaption>
             </figure>
             <figure className="feature-card">
-              <img src="/images/tents.jpg" alt="Dining tables inside a colourful striped tent with chandeliers." />
+              <img src={asset("/images/tents.jpg")} alt="Dining tables inside a colourful striped tent with chandeliers." />
               <figcaption>
                 <span>Tents</span>
                 Canvas as a dining room
               </figcaption>
             </figure>
             <figure className="feature-card">
-              <img src="/images/wedding-stage.jpg" alt="A wedding stage dressed in white flowers and warm light." />
+              <img src={asset("/images/wedding-stage.jpg")} alt="A wedding stage dressed in white flowers and warm light." />
               <figcaption>
                 <span>Décor</span>
                 A stage with proportion
@@ -196,7 +197,7 @@ export default function HomePage() {
       </section>
 
       <section className="band">
-        <img src="/images/palace-night.jpg" alt="A palace lit at night and reflected in still water." />
+        <img src={asset("/images/palace-night.jpg")} alt="A palace lit at night and reflected in still water." />
         <div className="band-shade" aria-hidden="true" />
         <div className="band-copy">
           <p className="kicker">Jaipur</p>

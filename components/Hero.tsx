@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { asset } from "@/lib/asset";
 
 type HeroProps = {
   image: string;
@@ -16,7 +17,7 @@ export function Hero({ image, alt, kicker, title, lede, actions, aside, variant 
     <section className={`hero hero-${variant}`}>
       <img
         className="hero-media"
-        src={image}
+        src={asset(image)}
         alt={alt}
         fetchPriority={variant === "home" ? "high" : "auto"}
       />

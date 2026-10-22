@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
 import { Reveal } from "@/components/Reveal";
+import { asset } from "@/lib/asset";
 import { pageMeta, weddingChapters } from "@/lib/site";
 
 export const metadata = pageMeta(
@@ -49,7 +50,7 @@ export default function WeddingsPage() {
         {weddingChapters.map((chapter, index) => (
           <article key={chapter.numeral} className={`chapter${index % 2 ? " is-flip" : ""}`}>
             <Reveal className="chapter-media">
-              <img src={chapter.image} alt={chapter.alt} />
+              <img src={asset(chapter.image)} alt={chapter.alt} />
             </Reveal>
             <Reveal className="chapter-copy">
               <p className="kicker">{chapter.numeral}</p>

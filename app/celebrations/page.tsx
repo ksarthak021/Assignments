@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/Hero";
+import { asset } from "@/lib/asset";
 import { celebrations, pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta(
@@ -54,21 +55,21 @@ export default function CelebrationsPage() {
       <section className="section section-paper">
         <div className="wrap feature-grid">
           <figure className="feature-card span-tall">
-            <img src="/images/stage-celebration.jpg" alt="A floral stage prepared for a celebration, with warm light." />
+            <img src={asset("/images/stage-celebration.jpg")} alt="A floral stage prepared for a celebration, with warm light." />
             <figcaption>
               <span>Parties</span>
               A stage the night can use
             </figcaption>
           </figure>
           <figure className="feature-card">
-            <img src="/images/floral-sofa.jpg" alt="A seating set dressed in red and white flowers." />
+            <img src={asset("/images/floral-sofa.jpg")} alt="A seating set dressed in red and white flowers." />
             <figcaption>
               <span>Social</span>
               Seating that is part of the décor
             </figcaption>
           </figure>
           <figure className="feature-card">
-            <img src="/images/red-chairs.jpg" alt="Red and green chairs arranged in a decorated room." />
+            <img src={asset("/images/red-chairs.jpg")} alt="Red and green chairs arranged in a decorated room." />
             <figcaption>
               <span>Corporate</span>
               A room that can hold a speech
