@@ -13,8 +13,8 @@ export default function WeddingsPage() {
   return (
     <main id="content">
       <Hero
-        image="/images/ceremony-red.jpg"
-        alt="A bride in red and gold stands with family during a wedding ceremony."
+        image="/images/palace-courtyard.jpg"
+        alt="A palace courtyard set for a wedding, with a floral arch, a cream aisle, and carved stone balconies."
         kicker="Weddings"
         title={
           <>
