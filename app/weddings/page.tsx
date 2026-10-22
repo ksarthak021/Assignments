@@ -7,7 +7,7 @@ import { pageMeta, weddingChapters } from "@/lib/site";
 export const metadata = pageMeta(
   "/weddings",
   "Wedding planning in Jaipur",
-  "Wedding planning with Shree Vishal Tent Palace: mandap, sangeet, baraat, pheras, reception, and palace or tent settings in Jaipur.",
+  "Wedding planning with Shree Vishal Tent Palace: mandap, sangeet, haldi, pheras, reception, and palace or tent settings in Jaipur.",
 );
 
 export default function WeddingsPage() {
@@ -22,7 +22,7 @@ export default function WeddingsPage() {
             The wedding, <em>from mandap to last light.</em>
           </>
         }
-        lede="A Jaipur wedding is a sequence, not a single decorated hour. SVTP Events plans the mandap, the sangeet, the baraat, the pheras, and the reception as one house."
+        lede="A Jaipur wedding is a sequence, not a single decorated hour. SVTP Events plans the mandap, the sangeet, the haldi, the pheras, and the reception as one house."
         actions={
           <>
             <Link className="btn btn-fill" href="/#plan">
@@ -69,9 +69,9 @@ export default function WeddingsPage() {
           </div>
           <div>
             <p>
-              The house asks which rites are essential, who must sit near the fire, and how large the
-              baraat really is. Decoration follows those answers. A beautiful mandap that the family
-              cannot use is a set, not a wedding.
+              The house asks which rites are essential, who must sit near the fire, and how the haldi
+              — the turmeric ceremony — should be held. Decoration follows those answers. A beautiful
+              mandap that the family cannot use is a set, not a wedding.
             </p>
             <p>
               Palace grounds and tents are both part of the practice. Stone gives one kind of room.

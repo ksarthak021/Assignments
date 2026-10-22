@@ -7,7 +7,7 @@ import { homeMeta, processSteps, services } from "@/lib/site";
 
 export const metadata = homeMeta();
 
-const RITES = ["Mandap", "Sangeet", "Baraat", "Pheras", "Reception"];
+const RITES = ["Mandap", "Sangeet", "Haldi", "Pheras", "Reception"];
 
 export default function HomePage() {
   return (
@@ -22,7 +22,7 @@ export default function HomePage() {
             Ceremonies, <em>held like palaces.</em>
           </>
         }
-        lede="SVTP Events is the house name on this site for Shree Vishal Tent Palace. We build weddings and gatherings in canvas, courtyards, and palace grounds."
+        lede="SVTP Events is Shree Vishal Tent Palace, a wedding and event house in Jaipur. We build weddings and gatherings in canvas, courtyards, and palace grounds."
         actions={
           <>
             <Link className="btn btn-fill" href="/contact#inquiry">
@@ -63,9 +63,9 @@ export default function HomePage() {
                 years of making the memories.
               </p>
               <p>
-                The work is physical and sequential: the path a baraat can actually walk, the height
-                of a mandap, the hour the reception changes temperature, the seat from which an elder
-                can hear the pheras.
+                The work is physical and sequential: the morning a haldi needs, the height of a
+                mandap, the hour the reception changes temperature, the seat from which an elder can
+                hear the pheras.
               </p>
               <Link className="text-link" href="/about">
                 How the house works

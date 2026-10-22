@@ -9,8 +9,7 @@ export function Footer() {
         <div className="footer-brand">
           <Wordmark />
           <p>
-            {BRAND.name} is the name of this site for {BRAND.established}, a wedding and event house
-            in {BRAND.city}.
+            {BRAND.name} is {BRAND.established}, a wedding and event house in {BRAND.city}.
           </p>
         </div>
         <nav aria-label="Footer">

@@ -32,7 +32,7 @@ export default function AboutPage() {
             <p className="kicker">About us</p>
             <h2>More than 35 years, and the memory of the day.</h2>
             <p>
-              We have been curating the experience since 1990. A wedding here is sangeet, baraat,
+              We have been curating the experience since 1990. A wedding here is sangeet, haldi,
               pheras, and reception, held as one sequence rather than a single decorated hour. The
               tent, the mandap, and the décor are how that sequence becomes a room.
             </p>

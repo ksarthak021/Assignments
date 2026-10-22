@@ -38,7 +38,7 @@ export const NAV = [
 ] as const;
 
 export const EVENT_TYPES = [
-  { id: "Wedding", detail: "Mandap, baraat, pheras, reception" },
+  { id: "Wedding", detail: "Mandap, haldi, pheras, reception" },
   { id: "Celebration", detail: "Birthdays, parties, family days" },
   { id: "Corporate", detail: "Dinners, launches, hosted meetings" },
   { id: "Another gathering", detail: "Describe it in the inquiry" },
@@ -102,16 +102,16 @@ export const packages: PackagePlan[] = [
     name: "Darbar",
     meaning: "The court",
     summary:
-      "A full wedding day, or a celebration large enough to need a court of its own. Procession, rite, and reception under one plan.",
+      "A full wedding day, or a celebration large enough to need a court of its own. Haldi, rite, and reception under one plan.",
     forWhom: "Wedding days and sangeet-scale parties from about 100 to 500 guests.",
     rows: {
       scale: "A full day",
       guests: "About 100 to 500",
-      ceremonies: "Baraat, pheras, and reception — or one long celebration",
+      ceremonies: "Haldi, pheras, and reception — or one long celebration",
       tent: "Primary tent plus a dressed threshold and guest paths",
       floral: "Layered mandap, entrance, and stage flowers",
       lighting: "A designed plot for dusk and the reception",
-      staging: "Procession entry, mandap, and a reception stage",
+      staging: "Haldi, mandap, and a reception stage",
       hospitality: "Guest desk, water, and seating that can be hosted",
       direction: "Day-of direction for the order of ceremonies",
       planning: "A sequence of conversations from ground visit to run of show",
@@ -175,10 +175,10 @@ export function recommendPackage(eventType: string, guests: string, season: stri
     reason = `${season} is a crowded season in Jaipur, and a wedding of ${guestsLabel} guests usually becomes a weekend. Rajmahal plans sangeet, the wedding day, and the reception together.`;
   } else if (eventType === "Wedding" && (mid || guests === "250–500")) {
     id = "darbar";
-    reason = `A wedding of ${guestsLabel} guests needs the full day — baraat, pheras, and reception — composed as one sequence. Darbar is that day.`;
+    reason = `A wedding of ${guestsLabel} guests needs the full day — haldi, pheras, and reception — composed as one sequence. Darbar is that day.`;
   } else if (eventType === "Wedding" && intimate && peak) {
     id = "darbar";
-    reason = `The list is intimate, and ${seasonLabel} in Jaipur is still a ceremonial day with a procession and a reception. Darbar covers that arc. Rajmahal waits for a true multi-day weekend.`;
+    reason = `The list is intimate, and ${seasonLabel} in Jaipur is still a ceremonial day with a haldi and a reception. Darbar covers that arc. Rajmahal waits for a true multi-day weekend.`;
   } else if (eventType === "Wedding") {
     id = "nivaas";
     reason = `A smaller wedding outside the most crowded months can be one beautifully held ceremony. Nivaas keeps the mandap, the flowers, and the hour in proportion.`;
@@ -241,7 +241,7 @@ export const services = [
   {
     numeral: "04",
     title: "Staging",
-    text: "The sangeet stage, the reception, the baraat’s entrance. Levels, sightlines, and a place for elders to sit without being hidden by a speaker.",
+    text: "The sangeet stage, the haldi, and the reception. Levels, sightlines, and a place for elders to sit without being hidden by a speaker.",
   },
   {
     numeral: "05",
@@ -272,10 +272,10 @@ export const weddingChapters = [
   },
   {
     numeral: "03",
-    title: "Baraat",
+    title: "Haldi",
     image: "/images/entrance.jpg",
     alt: "An outdoor celebration entrance framed by red drapes and strings of hanging lights.",
-    text: "The procession needs a path with width, shade, and an end. We design the threshold the baraat arrives through, and the pause before the family is received.",
+    text: "Haldi is the turmeric ceremony, usually the morning. We make a place where the family can sit close, where the yellow can be seen, and where the hour stays with the couple.",
   },
   {
     numeral: "04",
@@ -328,7 +328,7 @@ export const processSteps = [
   {
     numeral: "02",
     title: "Walk the ground",
-    text: "Wind, kitchen access, the width of a baraat, where elders sit, where rain would travel. The ground decides what the tent can be.",
+    text: "Wind, kitchen access, the place a haldi needs, where elders sit, where rain would travel. The ground decides what the tent can be.",
   },
   {
     numeral: "03",
@@ -357,7 +357,7 @@ export const faqs = [
   },
   {
     q: "What separates the three packages?",
-    a: "Nivaas is one ceremony. Darbar is a full wedding day or a large celebration, from procession to reception. Rajmahal is a multi-day weekend with hospitality and one director across sangeet, wedding, and reception. Fees are quoted after a conversation about the ground, the rites, and the season.",
+    a: "Nivaas is one ceremony. Darbar is a full wedding day or a large celebration, from haldi to reception. Rajmahal is a multi-day weekend with hospitality and one director across sangeet, wedding, and reception. Fees are quoted after a conversation about the ground, the rites, and the season.",
   },
   {
     q: "How are monsoon and summer dates handled?",
