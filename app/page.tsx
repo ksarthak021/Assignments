@@ -59,8 +59,8 @@ export default function HomePage() {
             <div className="story-copy">
               <p className="kicker">The house</p>
               <p>
-                Jaipur has long made rooms out of more than stone. A lawn becomes a climate. A
-                courtyard becomes a court. Canvas, flower, and light give a rite its own weather.
+                Since 1990, Shree Vishal Tent Palace has been curating the experience — more than 35
+                years of making the memories.
               </p>
               <p>
                 The work is physical and sequential: the path a baraat can actually walk, the height

@@ -6,8 +6,8 @@ import { BRAND, MAP, pageMeta, processSteps } from "@/lib/site";
 
 export const metadata = pageMeta(
   "/about",
-  "About the house in Jaipur",
-  "About SVTP Events, the site of Shree Vishal Tent Palace: a Jaipur house for weddings and gatherings, and how the work is done.",
+  "About us",
+  "Shree Vishal Tent Palace, also called SVTP Events, has been curating weddings and gatherings in Jaipur since 1990 — more than 35 years of tents, mandaps, décor, and the memory of the day.",
 );
 
 export default function AboutPage() {
@@ -16,34 +16,34 @@ export default function AboutPage() {
       <Hero
         image="/images/hawa-mahal.jpg"
         alt="Hawa Mahal in Jaipur, a pink sandstone façade of stacked windows and small balconies."
-        kicker="About"
+        kicker="About us"
         title={
           <>
-            A Jaipur house for <em>the rite and the room.</em>
+            Curating the experience <em>since 1990.</em>
           </>
         }
-        lede="Shree Vishal Tent Palace is the established name. SVTP Events is how the house is named on this site."
+        lede="Shree Vishal Tent Palace, also called SVTP Events, has spent more than 35 years making the memories. The work is the tent, the mandap, the décor, and the sequence of the day."
       />
 
       <section className="section">
         <div className="wrap about-grid">
           <Reveal>
           <div className="prose">
-            <p className="kicker">The house</p>
-            <h2>Canvas, flower, and the order of a day.</h2>
+            <p className="kicker">About us</p>
+            <h2>More than 35 years, and the memory of the day.</h2>
             <p>
-              Shree Vishal Tent Palace builds the rooms in which families in Jaipur marry, host, and
-              gather. The work is physical: timber and canvas, flowers, light, and a sequence that
-              can survive a real afternoon.
+              We have been curating the experience since 1990. A wedding here is sangeet, baraat,
+              pheras, and reception, held as one sequence rather than a single decorated hour. The
+              tent, the mandap, and the décor are how that sequence becomes a room.
             </p>
             <p>
-              The city has always made rooms beyond its stone. Courtyards, canopies, and tents take
-              a lawn or a palace ground and give a rite its own climate. The mandap is not a
-              backdrop. Guests feel it when they arrive. The couple feel it when the noise drops.
+              The same house keeps celebrations that are not weddings: a birthday, a family day, a
+              hosted evening. We make the memories by keeping the hour, the path, and the light in
+              order, so the people in the room can stay with the rite.
             </p>
             <p>
-              The house works in canvas and stone: a tent for the week, a courtyard for the rite,
-              and direction that keeps both in order.
+              {BRAND.established}, also called {BRAND.name}, is in {BRAND.city}. The house is at{" "}
+              {BRAND.address}.
             </p>
           </div>
           </Reveal>
