@@ -56,6 +56,13 @@ export default function WeddingsPage() {
               <p className="kicker">{chapter.numeral}</p>
               <h2>{chapter.title}</h2>
               <p>{chapter.text}</p>
+              {"frames" in chapter ? (
+                <div className="chapter-frames">
+                  {chapter.frames.map((frame) => (
+                    <img key={frame.src} src={asset(frame.src)} alt={frame.alt} />
+                  ))}
+                </div>
+              ) : null}
             </Reveal>
           </article>
         ))}
