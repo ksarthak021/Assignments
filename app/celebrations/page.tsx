@@ -60,7 +60,7 @@ export default function CelebrationsPage() {
       <section className="section section-paper">
         <div className="wrap feature-grid">
           <Reveal as="figure" className="feature-card span-tall">
-            <img src={asset("/images/stage-monogram.png")} alt="A pink and white stage with a monogram, floral pillars, and carved jharokha niches." />
+            <img src={asset("/images/stage-carved-white.jpg")} alt="An ornate white stage with red drapes, crystal strands, and a floral centre." />
             <figcaption>
               <span>Parties</span>
               A stage the night can use

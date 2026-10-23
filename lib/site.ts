@@ -263,15 +263,15 @@ export const weddingChapters = [
   {
     numeral: "01",
     title: "Mandap",
-    image: "/images/mandap-floral.jpg",
-    alt: "Guests seated beneath a red and white floral canopy during a wedding ceremony.",
+    image: "/images/mandap-cream-posts.jpg",
+    alt: "A cream outdoor mandap with four draped posts and a floral centre, seen from the aisle.",
     text: "The mandap is the room inside the room. We draw its height, its four sides, and the way elders sit close enough to witness. Flowers carry the structure. They do not bury it.",
   },
   {
     numeral: "02",
     title: "Sangeet",
-    image: "/images/stage-monogram.png",
-    alt: "A pink and white stage with a monogram, floral pillars, and carved jharokha niches.",
+    image: "/images/stage-white-sofa.jpg",
+    alt: "A wide stage with a white sofa, red side drapes, and a floral canopy.",
     text: "A sangeet fails when it is only a stage in a field. It wants a ceiling, a front row that can see, and light that flatters both dance and the people watching.",
   },
   {
@@ -377,6 +377,48 @@ export const gallery: {
   frame: "tall" | "wide" | "std";
 }[] = [
   {
+    src: "/images/mandap-cream-posts.jpg",
+    alt: "A cream outdoor mandap with four draped posts and a floral centre, seen from the aisle.",
+    title: "Cream mandap",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-cream-lawn.jpg",
+    alt: "The same cream outdoor mandap from farther across the lawn, with the aisle and drapes in view.",
+    title: "Cream mandap, from the lawn",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-round-dome.jpg",
+    alt: "A round mandap with a domed floral ceiling, red and white drapes, and a sunburst of flowers.",
+    title: "Round dome",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-white-florals.jpg",
+    alt: "A couple seated in a circular mandap of white flowers, with red drapes behind them.",
+    title: "White florals",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-red-pillars.jpg",
+    alt: "A red and white mandap with floral pillars, hanging garlands, and a carved base.",
+    title: "Red pillars",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/stage-couple-mandap.jpg",
+    alt: "A couple on a white stage, with a floral mandap behind them.",
+    title: "Couple at the stage",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
     src: "/images/palace-courtyard.jpg",
     alt: "A palace courtyard set for a wedding, with a floral arch, a cream aisle, and carved stone balconies.",
     title: "Palace courtyard",
@@ -452,6 +494,27 @@ export const gallery: {
     title: "Blossom tent",
     category: "Tents",
     frame: "wide",
+  },
+  {
+    src: "/images/stage-white-sofa.jpg",
+    alt: "A wide stage with a white sofa, red side drapes, and a floral canopy.",
+    title: "White sofa stage",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/stage-carved-white.jpg",
+    alt: "An ornate white stage with red drapes, crystal strands, and a floral centre.",
+    title: "Carved white stage",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/stage-red-panels.jpg",
+    alt: "A red and white stage with carved panels, a monogram, and floral pillars.",
+    title: "Red panel stage",
+    category: "Decor",
+    frame: "std",
   },
   {
     src: "/images/floral-ceiling.jpg",

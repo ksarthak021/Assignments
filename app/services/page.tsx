@@ -15,8 +15,8 @@ export default function ServicesPage() {
   return (
     <main id="content">
       <Hero
-        image="/images/stage-monogram.png"
-        alt="A pink and white stage with a monogram, floral pillars, and carved jharokha niches."
+        image="/images/stage-white-sofa.jpg"
+        alt="A wide stage with a white sofa, red side drapes, and a floral canopy."
         kicker="Services"
         title={
           <>
