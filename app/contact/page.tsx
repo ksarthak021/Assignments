@@ -72,10 +72,17 @@ export default function ContactPage() {
                 </div>
               </dl>
             </div>
-            <a className="map-link" href={MAP.google} rel="noreferrer">
-              <span>Google Maps</span>
-              <strong>Shree Vishal Tent Palace</strong>
-            </a>
+            <div className="map-card">
+              <iframe
+                className="map-frame"
+                title="Google Map of Shree Vishal Tent Palace, Shiv Colony, Kissan Marg, Tonk Phatak, Jaipur 302015"
+                src={MAP.embed}
+                loading="lazy"
+              />
+              <a className="map-open" href={MAP.directions} target="_blank" rel="noreferrer">
+                Directions
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

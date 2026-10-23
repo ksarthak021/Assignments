@@ -7,7 +7,7 @@ export function JsonLd() {
     name: BRAND.established,
     alternateName: BRAND.name,
     description:
-      "Shree Vishal Tent Palace, also called SVTP Events, is a Jaipur house for weddings and gatherings, working in tents, mandaps, floral décor, lighting, staging, and event direction.",
+      "Shree Vishal Tent Palace, also called SVTP Events, is a Jaipur house for weddings and gatherings, working in tents, mandaps, floral decor, lighting, staging, and event direction.",
     url: SITE_URL,
     image: `${SITE_URL}/images/floral-ceiling.jpg`,
     telephone: BRAND.phone,

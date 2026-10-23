@@ -70,7 +70,7 @@ export default function CelebrationsPage() {
             <img src={asset("/images/floral-sofa.jpg")} alt="A seating set dressed in red and white flowers." />
             <figcaption>
               <span>Social</span>
-              Seating that is part of the décor
+              Seating that is part of the decor
             </figcaption>
           </Reveal>
           <Reveal as="figure" className="feature-card" delay={160}>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type FormEvent, type MouseEvent } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import {
   BRAND,
@@ -101,6 +102,7 @@ export function InquiryForm() {
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState(false);
   const [submitted, setSubmitted] = useState<Values | null>(null);
+  const [toast, setToast] = useState(false);
 
   useEffect(() => {
     const eventType = pickAllowed(
@@ -125,6 +127,12 @@ export function InquiryForm() {
       });
     }
   }, [eventParam, guestsParam, seasonParam, packageParam]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const timer = window.setTimeout(() => setToast(false), 5000);
+    return () => window.clearTimeout(timer);
+  }, [toast]);
 
   function update<K extends keyof Values>(key: K, value: Values[K]) {
     setValues((current) => ({ ...current, [key]: value }));
@@ -158,8 +166,10 @@ export function InquiryForm() {
       const accepted = body?.success === true || body?.success === "true";
       if (!response.ok || !accepted) throw new Error("Inquiry was not accepted.");
       setSubmitted(values);
+      setToast(true);
     } catch {
       setSendError(true);
+      setToast(false);
     } finally {
       setSending(false);
     }
@@ -171,10 +181,21 @@ export function InquiryForm() {
     if (focusFirst(nextErrors)) event.preventDefault();
   }
 
+  const toastNode =
+    toast && typeof document !== "undefined"
+      ? createPortal(
+          <p className="toast" role="status">
+            Inquiry received. We will contact you soon. You can also call us at {BRAND.phone}.
+          </p>,
+          document.body,
+        )
+      : null;
+
   if (submitted) {
     const plan = packageById(submitted.packageId);
     return (
       <div className="form-success" role="status">
+        {toastNode}
         <p className="kicker">Thank you</p>
         <h2>The house has your inquiry.</h2>
         <p>

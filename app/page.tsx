@@ -125,7 +125,7 @@ export default function HomePage() {
             <Reveal as="figure" className="feature-card" delay={160}>
               <img src={asset("/images/stage-monogram.png")} alt="A pink and white stage with a monogram, floral pillars, and carved jharokha niches." />
               <figcaption>
-                <span>Décor</span>
+                <span>Decor</span>
                 A stage with proportion
               </figcaption>
             </Reveal>

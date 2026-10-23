@@ -4,8 +4,8 @@ import { pageMeta } from "@/lib/site";
 
 export const metadata = pageMeta(
   "/gallery",
-  "Gallery of tents, décor, and evenings",
-  "A filterable visual library of wedding rites, tents, floral décor, and evening light for SVTP Events, Shree Vishal Tent Palace in Jaipur.",
+  "Gallery of tents, decor, and evenings",
+  "A filterable visual library of wedding rites, tents, floral decor, and evening light for SVTP Events, Shree Vishal Tent Palace in Jaipur.",
 );
 
 export default function GalleryPage() {
@@ -21,7 +21,7 @@ export default function GalleryPage() {
             Rooms, flowers, <em>and evening light.</em>
           </>
         }
-        lede="Filter by weddings, tents, décor, or evenings. Open any photograph to look closely."
+        lede="Filter by weddings, tents, decor, or evenings. Open any photograph to look closely."
       />
       <section className="section">
         <div className="wrap">

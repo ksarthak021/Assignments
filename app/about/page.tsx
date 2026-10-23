@@ -7,7 +7,7 @@ import { BRAND, MAP, pageMeta, processSteps } from "@/lib/site";
 export const metadata = pageMeta(
   "/about",
   "About us",
-  "Shree Vishal Tent Palace, also called SVTP Events, has been curating weddings and gatherings in Jaipur since 1990 — more than 35 years of tents, mandaps, décor, and the memory of the day.",
+  "Shree Vishal Tent Palace, also called SVTP Events, has been curating weddings and gatherings in Jaipur since 1990 — more than 35 years of tents, mandaps, decor, and the memory of the day.",
 );
 
 export default function AboutPage() {
@@ -22,7 +22,7 @@ export default function AboutPage() {
             Curating the experience <em>since 1990.</em>
           </>
         }
-        lede="Shree Vishal Tent Palace, also called SVTP Events, has spent more than 35 years making the memories. The work is the tent, the mandap, the décor, and the sequence of the day."
+        lede="Shree Vishal Tent Palace, also called SVTP Events, has spent more than 35 years making the memories. The work is the tent, the mandap, the decor, and the sequence of the day."
       />
 
       <section className="section">
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <p>
               We have been curating the experience since 1990. A wedding here is sangeet, haldi,
               pheras, and reception, held as one sequence rather than a single decorated hour. The
-              tent, the mandap, and the décor are how that sequence becomes a room.
+              tent, the mandap, and the decor are how that sequence becomes a room.
             </p>
             <p>
               The same house keeps celebrations that are not weddings: a birthday, a family day, a

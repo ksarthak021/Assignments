@@ -7,8 +7,8 @@ import { faqs, pageMeta, services } from "@/lib/site";
 
 export const metadata = pageMeta(
   "/services",
-  "Tent, décor, and event direction",
-  "Tent and mandap, floral décor, lighting, staging, guest hospitality, and full event direction from Shree Vishal Tent Palace in Jaipur, with three packages compared.",
+  "Tent, decor, and event direction",
+  "Tent and mandap, floral decor, lighting, staging, guest hospitality, and full event direction from Shree Vishal Tent Palace in Jaipur, with three packages compared.",
 );
 
 export default function ServicesPage() {

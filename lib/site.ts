@@ -11,11 +11,11 @@ export const BRAND = {
   streetAddress: "Shiv Colony, Kissan Marg, Tonk Phatak",
   postalCode: "302015",
   address: "Shiv Colony, Kissan Marg, Tonk Phatak, Jaipur 302015",
-  phone: "+91 9982257338",
-  phoneTel: "tel:+919982257338",
+  phone: "+91 9414320406",
+  phoneTel: "tel:+919414320406",
   email: "sarthakrules21@gmail.com",
   emailMailto: "mailto:sarthakrules21@gmail.com",
-  whatsapp: "https://wa.me/919982257338",
+  whatsapp: "https://wa.me/919414320406",
   lat: 26.8720184,
   lng: 75.7905572,
 } as const;
@@ -23,6 +23,10 @@ export const BRAND = {
 export const MAP = {
   google:
     "https://www.google.com/maps/place/Shree+Vishal+Tent+Palace/@26.8720184,75.7905572,17z/data=!3m1!4b1!4m6!3m5!1s0x396db5ccb392cc9d:0x1b82ec5137b4b0d5!8m2!3d26.8720184!4d75.7905572",
+  embed:
+    "https://maps.google.com/maps?q=Shree+Vishal+Tent+Palace,+Shiv+Colony,+Kissan+Marg,+Tonk+Phatak,+Jaipur+302015&z=16&output=embed",
+  directions:
+    "https://www.google.com/maps/dir/?api=1&destination=Shree+Vishal+Tent+Palace,+Shiv+Colony,+Kissan+Marg,+Tonk+Phatak,+Jaipur+302015",
 } as const;
 
 export const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/sarthakrules21@gmail.com";
@@ -144,7 +148,7 @@ export const comparisonRows: { key: keyof PackagePlan["rows"]; label: string }[]
   { key: "guests", label: "Guests" },
   { key: "ceremonies", label: "Ceremonies" },
   { key: "tent", label: "Tent and mandap" },
-  { key: "floral", label: "Floral and décor" },
+  { key: "floral", label: "Floral and decor" },
   { key: "lighting", label: "Lighting" },
   { key: "staging", label: "Staging" },
   { key: "hospitality", label: "Hospitality" },
@@ -230,7 +234,7 @@ export const services = [
   },
   {
     numeral: "02",
-    title: "Floral and décor",
+    title: "Floral and decor",
     text: "Marigold, mogra, and foliage used as architecture. Garlands, a threshold, a mandap that reads from the last row, and tables that do not compete with the ceremony.",
   },
   {
@@ -344,34 +348,26 @@ export const processSteps = [
 
 export const faqs = [
   {
-    q: "How early should a family begin?",
-    a: "For a winter wedding in Jaipur, begin while the date can still move. Grounds and tent crews are promised months ahead. A single ceremony can start closer to the date, once the ground is known.",
+    q: "Can we book you for individual one-day events like Haldi, Sangeet, or Mehendi?",
+    a: "Yes. A single day can be booked on its own. Haldi, Sangeet, and Mehendi each get the tent, the decor, and the setting for that rite.",
   },
   {
-    q: "Do you work only in Jaipur?",
-    a: "The house is in Jaipur. Most gatherings are in the city, on palace grounds, on lawns, and in family courtyards. Work farther out is discussed once the ground and the date are real.",
+    q: "Do you offer themed decor fabrications for specific traditional ceremonies?",
+    a: "Yes. Decor is built for the ceremony: a haldi courtyard, a mehendi lounge, a sangeet stage, not one look repeated all day.",
   },
   {
-    q: "Can the mandap stand in a palace ground, or only under a tent?",
-    a: "Both. The mandap is its own structure. It can stand in a courtyard, on a lawn, or inside a tent dressed to feel like a room. The ground decides the engineering. The rite decides the form.",
+    q: "What kinds of corporate events do you manage?",
+    a: "Dinners, launches, conferences, and hosted company gatherings, in a tent or on palace grounds.",
   },
   {
-    q: "What separates the three packages?",
-    a: "Nivaas is one ceremony. Darbar is a full wedding day or a large celebration, from haldi to reception. Rajmahal is a multi-day weekend with hospitality and one director across sangeet, wedding, and reception. Fees are quoted after a conversation about the ground, the rites, and the season.",
-  },
-  {
-    q: "How are monsoon and summer dates handled?",
-    a: "Winter is the crowded season. Summer needs shade, water, and a later evening. Monsoon needs a tent that can take rain, covered guest paths, and a ceremony plan if the sky opens. The season is part of the design, which is why the planner asks for it.",
-  },
-  {
-    q: "How does an inquiry reach the house?",
-    a: "The form sends the note to Shree Vishal Tent Palace. You can also call +91 9982257338, write to sarthakrules21@gmail.com, or send the same details on WhatsApp.",
+    q: "Do your tenting packages include flooring, carpeting, stage fabrication, and lighting?",
+    a: "Yes. Flooring, carpeting, stage fabrication, and lighting are part of the tenting package, with the canvas.",
   },
 ] as const;
 
-export type GalleryCategory = "Weddings" | "Tents" | "Décor" | "Evenings";
+export type GalleryCategory = "Weddings" | "Tents" | "Decor" | "Evenings";
 
-export const galleryFilters = ["All", "Weddings", "Tents", "Décor", "Evenings"] as const;
+export const galleryFilters = ["All", "Weddings", "Tents", "Decor", "Evenings"] as const;
 
 export const gallery: {
   src: string;
@@ -461,49 +457,49 @@ export const gallery: {
     src: "/images/floral-ceiling.jpg",
     alt: "A ceiling of white and gold flowers above a wedding aisle.",
     title: "A ceiling of flowers",
-    category: "Décor",
+    category: "Decor",
     frame: "wide",
   },
   {
     src: "/images/stage-monogram.png",
     alt: "A pink and white stage with a monogram, floral pillars, and carved jharokha niches.",
     title: "Monogram stage",
-    category: "Décor",
+    category: "Decor",
     frame: "wide",
   },
   {
     src: "/images/peach-arch.png",
     alt: "Peach drapes framing a floral arch and a sofa dressed in flowers.",
     title: "Peach arch",
-    category: "Décor",
+    category: "Decor",
     frame: "wide",
   },
   {
     src: "/images/gold-sofa.png",
     alt: "A carved gold sofa against blush drapes, with hanging flowers and a chandelier.",
     title: "Gold sofa",
-    category: "Décor",
+    category: "Decor",
     frame: "std",
   },
   {
     src: "/images/floral-sofa.jpg",
     alt: "A sofa set dressed in red and white flowers for a ceremony.",
     title: "Seating, in flower",
-    category: "Décor",
+    category: "Decor",
     frame: "std",
   },
   {
     src: "/images/flowers.jpg",
     alt: "A vessel of mixed flowers on a table.",
     title: "The table",
-    category: "Décor",
+    category: "Decor",
     frame: "tall",
   },
   {
     src: "/images/red-chairs.jpg",
     alt: "Red and green chairs arranged inside a decorated room.",
     title: "A coloured room",
-    category: "Décor",
+    category: "Decor",
     frame: "wide",
   },
   {
@@ -567,7 +563,7 @@ export const gallery: {
 export const homeMeta = (): Metadata => {
   const title = "SVTP Events · Shree Vishal Tent Palace, Jaipur";
   const description =
-    "SVTP Events is Shree Vishal Tent Palace, a Jaipur house for weddings and gatherings: mandap, tent, floral décor, lighting, and full event direction.";
+    "SVTP Events is Shree Vishal Tent Palace, a Jaipur house for weddings and gatherings: mandap, tent, floral decor, lighting, and full event direction.";
   return {
     title: { absolute: title },
     description,
