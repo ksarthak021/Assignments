@@ -266,6 +266,12 @@ export const weddingChapters = [
     image: "/images/mandap-cream-posts.jpg",
     alt: "A cream outdoor mandap with four draped posts and a floral centre, seen from the aisle.",
     text: "The mandap is the room inside the room. We draw its height, its four sides, and the way elders sit close enough to witness. Flowers carry the structure. They do not bury it.",
+    frames: [
+      {
+        src: "/images/mandap-elephants.jpg",
+        alt: "A red and gold mandap with elephant figures and a floral canopy.",
+      },
+    ],
   },
   {
     numeral: "02",
@@ -319,6 +325,10 @@ export const weddingChapters = [
         src: "/images/haldi-marigold-seat.jpg",
         alt: "A marigold wall with a yellow seat set for haldi.",
       },
+      {
+        src: "/images/haldi-mehendi-signs.jpg",
+        alt: "Yellow and green circular signs for a haldi and a mehendi.",
+      },
     ],
   },
   {
@@ -327,6 +337,12 @@ export const weddingChapters = [
     image: "/images/couple-arch.png",
     alt: "A couple seated under a white floral arch, with a chandelier and red drapes behind them.",
     text: "The fire is small and the moment is not. Seating, sound, and the ring around the agni are planned so the vows can be heard and the photographers are not the ceremony.",
+    frames: [
+      {
+        src: "/images/entrance-peach-petals.jpg",
+        alt: "A peach drape tunnel with a petal aisle leading to the ceremony.",
+      },
+    ],
   },
   {
     numeral: "05",
@@ -334,6 +350,16 @@ export const weddingChapters = [
     image: "/images/reception-palace-hall.jpg",
     alt: "A palace hall in blue and pink light, with a long aisle and chandeliers.",
     text: "By evening the tent should feel like another climate. The couple’s entry, the elders’ blessing, and dinner each need a different light and a different volume of music.",
+    frames: [
+      {
+        src: "/images/aisle-white-roses.jpg",
+        alt: "A white rose aisle leading to a gold sequin arch.",
+      },
+      {
+        src: "/images/reception-chandelier-walk.jpg",
+        alt: "A chandelier corridor with a floral carpet for a reception walk.",
+      },
+    ],
   },
   {
     numeral: "06",
@@ -341,6 +367,32 @@ export const weddingChapters = [
     image: "/images/tents.jpg",
     alt: "Long tables set inside a colourful tent, with chandeliers and striped canvas overhead.",
     text: "Some families marry on palace grounds. Some marry under canvas built for the week. The house works in both, and often in a marriage of the two: stone at the edge, a tent for the rite.",
+    frames: [
+      {
+        src: "/images/entrance-red-night.jpg",
+        alt: "A red floral entrance tunnel lit at night.",
+      },
+      {
+        src: "/images/entrance-peach-arch.jpg",
+        alt: "A peach floral entrance with hanging arrangements and a patterned carpet.",
+      },
+      {
+        src: "/images/entrance-drape-rounds.jpg",
+        alt: "An entrance of red and white vertical drapes with round floral arrangements.",
+      },
+      {
+        src: "/images/entrance-welcome-mirror.jpg",
+        alt: "A blue entrance with a welcome mirror framed by white flowers.",
+      },
+      {
+        src: "/images/entrance-white-arch.jpg",
+        alt: "An entrance hall with a white arch and a patterned carpet.",
+      },
+      {
+        src: "/images/entrance-blue-florals.jpg",
+        alt: "An entrance of blue and white drapes with white floral arrangements.",
+      },
+    ],
   },
 ] as const;
 
@@ -452,6 +504,13 @@ export const gallery: {
     frame: "tall",
   },
   {
+    src: "/images/mandap-elephants.jpg",
+    alt: "A red and gold mandap with elephant figures and a floral canopy.",
+    title: "Elephant mandap",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
     src: "/images/stage-couple-mandap.jpg",
     alt: "A couple on a white stage, with a floral mandap behind them.",
     title: "Couple at the stage",
@@ -504,6 +563,20 @@ export const gallery: {
     src: "/images/haldi-marigold-seat.jpg",
     alt: "A marigold wall with a yellow seat set for haldi.",
     title: "Marigold seat",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/haldi-mehendi-signs.jpg",
+    alt: "Yellow and green circular signs for a haldi and a mehendi.",
+    title: "Haldi and mehendi signs",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/aisle-white-roses.jpg",
+    alt: "A white rose aisle leading to a gold sequin arch.",
+    title: "White rose aisle",
     category: "Weddings",
     frame: "tall",
   },
@@ -585,6 +658,55 @@ export const gallery: {
     frame: "std",
   },
   {
+    src: "/images/entrance-red-night.jpg",
+    alt: "A red floral entrance tunnel lit at night.",
+    title: "Red night entrance",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-peach-petals.jpg",
+    alt: "A peach drape tunnel with a petal aisle leading to the ceremony.",
+    title: "Peach petal aisle",
+    category: "Tents",
+    frame: "tall",
+  },
+  {
+    src: "/images/entrance-peach-arch.jpg",
+    alt: "A peach floral entrance with hanging arrangements and a patterned carpet.",
+    title: "Peach floral entrance",
+    category: "Tents",
+    frame: "tall",
+  },
+  {
+    src: "/images/entrance-drape-rounds.jpg",
+    alt: "An entrance of red and white vertical drapes with round floral arrangements.",
+    title: "Round floral entrance",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-welcome-mirror.jpg",
+    alt: "A blue entrance with a welcome mirror framed by white flowers.",
+    title: "Welcome mirror",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-white-arch.jpg",
+    alt: "An entrance hall with a white arch and a patterned carpet.",
+    title: "White arch entrance",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
+    src: "/images/entrance-blue-florals.jpg",
+    alt: "An entrance of blue and white drapes with white floral arrangements.",
+    title: "Blue floral entrance",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
     src: "/images/tent-blossoms.png",
     alt: "A draped tent with drum chandeliers and blossom trees around a mandap.",
     title: "Blossom tent",
@@ -632,6 +754,13 @@ export const gallery: {
     title: "Peach arch",
     category: "Decor",
     frame: "wide",
+  },
+  {
+    src: "/images/lounge-bougainvillea.jpg",
+    alt: "A pink bougainvillea arch over a daybed, set as lounge decor.",
+    title: "Bougainvillea lounge",
+    category: "Decor",
+    frame: "std",
   },
   {
     src: "/images/gold-sofa.png",
@@ -695,6 +824,13 @@ export const gallery: {
     title: "Blue and pink hall",
     category: "Evenings",
     frame: "std",
+  },
+  {
+    src: "/images/reception-chandelier-walk.jpg",
+    alt: "A chandelier corridor with a floral carpet for a reception walk.",
+    title: "Chandelier walk",
+    category: "Evenings",
+    frame: "tall",
   },
   {
     src: "/images/palace-night.jpg",
