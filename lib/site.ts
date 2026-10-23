@@ -1,0 +1,912 @@
+import type { Metadata } from "next";
+
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ksarthak021.github.io";
+
+export const BRAND = {
+  name: "SVTP Events",
+  established: "Shree Vishal Tent Palace",
+  city: "Jaipur",
+  region: "Rajasthan",
+  country: "IN",
+  streetAddress: "Shiv Colony, Kissan Marg, Tonk Phatak",
+  postalCode: "302015",
+  address: "Shiv Colony, Kissan Marg, Tonk Phatak, Jaipur 302015",
+  phone: "+91 9414320406",
+  phoneTel: "tel:+919414320406",
+  email: "sarthakrules21@gmail.com",
+  emailMailto: "mailto:sarthakrules21@gmail.com",
+  whatsapp: "https://wa.me/919414320406",
+  lat: 26.8720184,
+  lng: 75.7905572,
+} as const;
+
+export const MAP = {
+  google:
+    "https://www.google.com/maps/place/Shree+Vishal+Tent+Palace/@26.8720184,75.7905572,17z/data=!3m1!4b1!4m6!3m5!1s0x396db5ccb392cc9d:0x1b82ec5137b4b0d5!8m2!3d26.8720184!4d75.7905572",
+  embed:
+    "https://maps.google.com/maps?q=Shree+Vishal+Tent+Palace,+Shiv+Colony,+Kissan+Marg,+Tonk+Phatak,+Jaipur+302015&z=16&output=embed",
+  directions:
+    "https://www.google.com/maps/dir/?api=1&destination=Shree+Vishal+Tent+Palace,+Shiv+Colony,+Kissan+Marg,+Tonk+Phatak,+Jaipur+302015",
+} as const;
+
+export const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/sarthakrules21@gmail.com";
+export const INQUIRY_SUBJECT = "New inquiry — SVTP Events";
+
+export const NAV = [
+  { href: "/weddings", label: "Weddings" },
+  { href: "/celebrations", label: "Celebrations" },
+  { href: "/services", label: "Services" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+] as const;
+
+export const EVENT_TYPES = [
+  { id: "Wedding", detail: "Mandap, haldi, pheras, reception" },
+  { id: "Celebration", detail: "Birthdays, parties, family days" },
+  { id: "Corporate", detail: "Dinners, launches, hosted meetings" },
+  { id: "Another gathering", detail: "Describe it in the inquiry" },
+] as const;
+
+export const GUEST_RANGES = ["Under 100", "100–250", "250–500", "500 or more"] as const;
+
+export const SEASONS = [
+  { id: "Winter", detail: "November to February" },
+  { id: "Spring", detail: "March and April" },
+  { id: "Summer", detail: "May and June" },
+  { id: "Monsoon", detail: "July to September" },
+  { id: "Autumn", detail: "October" },
+] as const;
+
+export type PackageId = "nivaas" | "darbar" | "rajmahal";
+
+export type PackagePlan = {
+  id: PackageId;
+  name: string;
+  meaning: string;
+  summary: string;
+  forWhom: string;
+  rows: {
+    scale: string;
+    guests: string;
+    ceremonies: string;
+    tent: string;
+    floral: string;
+    lighting: string;
+    staging: string;
+    hospitality: string;
+    direction: string;
+    planning: string;
+  };
+};
+
+export const packages: PackagePlan[] = [
+  {
+    id: "nivaas",
+    name: "Nivaas",
+    meaning: "The dwelling",
+    summary:
+      "One ceremony, held with proportion. A tent or courtyard, a floral mandap, and a producer who keeps the hour.",
+    forWhom: "Engagements, intimate weddings, birthdays, and gatherings under about 150 guests.",
+    rows: {
+      scale: "One ceremony",
+      guests: "Comfortable under about 150",
+      ceremonies: "A single rite or party",
+      tent: "One tent or courtyard, dressed as a room, with a mandap",
+      floral: "Mandap flowers and a considered entrance",
+      lighting: "Warm practical light and a simple evening wash",
+      staging: "Entrance, seating, and a modest stage if the night needs one",
+      hospitality: "A welcome point, water, and a clear way in",
+      direction: "A producer present for the ceremony",
+      planning: "Two planning conversations and a ground visit",
+    },
+  },
+  {
+    id: "darbar",
+    name: "Darbar",
+    meaning: "The court",
+    summary:
+      "A full wedding day, or a celebration large enough to need a court of its own. Haldi, rite, and reception under one plan.",
+    forWhom: "Wedding days and sangeet-scale parties from about 100 to 500 guests.",
+    rows: {
+      scale: "A full day",
+      guests: "About 100 to 500",
+      ceremonies: "Haldi, pheras, and reception — or one long celebration",
+      tent: "Primary tent plus a dressed threshold and guest paths",
+      floral: "Layered mandap, entrance, and stage flowers",
+      lighting: "A designed plot for dusk and the reception",
+      staging: "Haldi, mandap, and a reception stage",
+      hospitality: "Guest desk, water, and seating that can be hosted",
+      direction: "Day-of direction for the order of ceremonies",
+      planning: "A sequence of conversations from ground visit to run of show",
+    },
+  },
+  {
+    id: "rajmahal",
+    name: "Rajmahal",
+    meaning: "Palace scale",
+    summary:
+      "A multi-day weekend. Sangeet, wedding, and reception share one director, with hospitality for guests who have travelled.",
+    forWhom: "Weddings that occupy a weekend, large guest lists, and palace or lawn settings.",
+    rows: {
+      scale: "A weekend",
+      guests: "Large lists, including 500 and more",
+      ceremonies: "Sangeet, wedding rites, and reception",
+      tent: "Palace ground or a large tent complex, with rooms for each rite",
+      floral: "A floral programme that changes with each ceremony",
+      lighting: "Full plot, including paths, mandap, and the night",
+      staging: "Distinct stages and entries for each gathering",
+      hospitality: "Care for travelling guests, welcome, and wayfinding",
+      direction: "One director across every ceremony",
+      planning: "A season’s planning, with rehearsed timing",
+    },
+  },
+];
+
+export const comparisonRows: { key: keyof PackagePlan["rows"]; label: string }[] = [
+  { key: "scale", label: "Scale" },
+  { key: "guests", label: "Guests" },
+  { key: "ceremonies", label: "Ceremonies" },
+  { key: "tent", label: "Tent and mandap" },
+  { key: "floral", label: "Floral and decor" },
+  { key: "lighting", label: "Lighting" },
+  { key: "staging", label: "Staging" },
+  { key: "hospitality", label: "Hospitality" },
+  { key: "direction", label: "Direction" },
+  { key: "planning", label: "Planning" },
+];
+
+export function packageById(id: string | null | undefined) {
+  return packages.find((item) => item.id === id) ?? null;
+}
+
+export function recommendPackage(eventType: string, guests: string, season: string) {
+  const large = guests === "250–500" || guests === "500 or more";
+  const mid = guests === "100–250";
+  const intimate = guests === "Under 100";
+  const peak = season === "Winter" || season === "Autumn";
+  const guestsLabel = guests.toLowerCase();
+  const seasonLabel = season.toLowerCase();
+
+  let id: PackageId = "nivaas";
+  let reason = "";
+
+  if (eventType === "Wedding" && guests === "500 or more") {
+    id = "rajmahal";
+    reason = `A ${seasonLabel} wedding of ${guestsLabel} guests is a matter of routes, light, and timing across more than one gathering. Rajmahal keeps sangeet, wedding rites, and reception with one director.`;
+  } else if (eventType === "Wedding" && guests === "250–500" && peak) {
+    id = "rajmahal";
+    reason = `${season} is a crowded season in Jaipur, and a wedding of ${guestsLabel} guests usually becomes a weekend. Rajmahal plans sangeet, the wedding day, and the reception together.`;
+  } else if (eventType === "Wedding" && (mid || guests === "250–500")) {
+    id = "darbar";
+    reason = `A wedding of ${guestsLabel} guests needs the full day — haldi, pheras, and reception — composed as one sequence. Darbar is that day.`;
+  } else if (eventType === "Wedding" && intimate && peak) {
+    id = "darbar";
+    reason = `The list is intimate, and ${seasonLabel} in Jaipur is still a ceremonial day with a haldi and a reception. Darbar covers that arc. Rajmahal waits for a true multi-day weekend.`;
+  } else if (eventType === "Wedding") {
+    id = "nivaas";
+    reason = `A smaller wedding outside the most crowded months can be one beautifully held ceremony. Nivaas keeps the mandap, the flowers, and the hour in proportion.`;
+  } else if (eventType === "Corporate") {
+    if (large) {
+      id = "darbar";
+      reason = `A corporate gathering of ${guestsLabel} guests needs staging, light, and a clear run of show. Darbar treats it as a directed day.`;
+    } else {
+      id = "nivaas";
+      reason = `A corporate gathering of ${guestsLabel} guests fits a single dressed room. Nivaas covers the tent or hall, the light, and a producer.`;
+    }
+  } else if (eventType === "Celebration") {
+    if (guests === "500 or more") {
+      id = "rajmahal";
+      reason = `A celebration of ${guestsLabel} guests needs paths, light, and hospitality at palace scale. Rajmahal is the plan, even when it is a single night.`;
+    } else if (large || (mid && peak)) {
+      id = "darbar";
+      reason = `A ${seasonLabel} celebration of ${guestsLabel} guests fills a tent and asks for an entrance, a stage, and someone keeping the night in order. That is Darbar.`;
+    } else {
+      id = "nivaas";
+      reason = `This celebration can be one generous room. Nivaas dresses the tent or courtyard and keeps hospitality simple and exact.`;
+    }
+  } else if (guests === "500 or more") {
+    id = "rajmahal";
+    reason = `At 500 or more guests the day becomes a matter of paths, water, light, and timing. Rajmahal is the plan that holds that many people.`;
+  } else if (large || mid) {
+    id = "darbar";
+    reason = `This guest count asks for a directed day: staging, a real entrance, and hospitality. Darbar is the fit.`;
+  } else {
+    id = "nivaas";
+    reason = `A smaller gathering is often one room, done properly. Nivaas is the place to begin.`;
+  }
+
+  const plan = packages.find((item) => item.id === id);
+  if (!plan) return null;
+  return { plan, reason };
+}
+
+export function pickAllowed<T extends string>(value: string | null, list: readonly T[]): T | "" {
+  if (!value) return "";
+  return list.includes(value as T) ? (value as T) : "";
+}
+
+export const services = [
+  {
+    numeral: "01",
+    title: "Tent and mandap",
+    text: "Canvas engineered for wind, rain, and a rite that cannot be moved. The mandap is drawn with proportion, whether it stands on a lawn, in a courtyard, or inside the tent.",
+  },
+  {
+    numeral: "02",
+    title: "Floral and decor",
+    text: "Marigold, mogra, and foliage used as architecture. Garlands, a threshold, a mandap that reads from the last row, and tables that do not compete with the ceremony.",
+  },
+  {
+    numeral: "03",
+    title: "Lighting",
+    text: "Daylight for the pheras, a warmer hour at dusk, and a reception that can be seen and heard. Paths stay lit. The mandap is never a dark centre.",
+  },
+  {
+    numeral: "04",
+    title: "Staging",
+    text: "The sangeet stage, the haldi, and the reception. Levels, sightlines, and a place for elders to sit without being hidden by a speaker.",
+  },
+  {
+    numeral: "05",
+    title: "Guest hospitality",
+    text: "Welcome, water, wayfinding, and a seat that matches the invitation. Travelling guests should know where they are before they are asked to celebrate.",
+  },
+  {
+    numeral: "06",
+    title: "Full event direction",
+    text: "The order of the day, rehearsed. Who enters, when the music drops, how the pheras stay audible, and who is holding the next hour.",
+  },
+] as const;
+
+export const weddingChapters = [
+  {
+    numeral: "01",
+    title: "Mandap",
+    image: "/images/mandap-cream-posts.jpg",
+    alt: "A cream outdoor mandap with four draped posts and a floral centre, seen from the aisle.",
+    text: "The mandap is the room inside the room. We draw its height, its four sides, and the way elders sit close enough to witness. Flowers carry the structure. They do not bury it.",
+    frames: [
+      {
+        src: "/images/mandap-elephants.jpg",
+        alt: "A red and gold mandap with elephant figures and a floral canopy.",
+      },
+    ],
+  },
+  {
+    numeral: "02",
+    title: "Sangeet",
+    image: "/images/sangeet-blue-spotlights.jpg",
+    alt: "A night stage washed in blue light, with a white sofa and spotlights above.",
+    text: "A sangeet fails when it is only a stage in a field. It wants a ceiling, a front row that can see, and light that flatters both dance and the people watching.",
+    frames: [
+      {
+        src: "/images/sangeet-purple-arches.jpg",
+        alt: "Purple light under repeated chandelier arches on a night stage.",
+      },
+      {
+        src: "/images/sangeet-lantern-floor.jpg",
+        alt: "A dance floor edged with lanterns, with a chandelier over the centre.",
+      },
+      {
+        src: "/images/sangeet-mirror-entry.jpg",
+        alt: "A night entrance with a mirror welcome, white flowers, and warm lamps.",
+      },
+    ],
+  },
+  {
+    numeral: "03",
+    title: "Haldi",
+    image: "/images/haldi-marigold-canopy.jpg",
+    alt: "A yellow marigold canopy with swings and a low daybed for a haldi.",
+    text: "Haldi is the turmeric ceremony, usually the morning. We make a place where the family can sit close, where the yellow can be seen, and where the hour stays with the couple.",
+    frames: [
+      {
+        src: "/images/haldi-marigold-aisle.jpg",
+        alt: "A yellow marigold aisle leading to a floral haldi seat.",
+      },
+      {
+        src: "/images/haldi-marigold-swing.jpg",
+        alt: "Two swings under a dense hanging of yellow marigolds.",
+      },
+      {
+        src: "/images/haldi-marigold-daybed.jpg",
+        alt: "A carved daybed under a yellow marigold canopy.",
+      },
+      {
+        src: "/images/haldi-neon-sign.jpg",
+        alt: "A haldi set with a neon sign, marigolds, and pastel balloons.",
+      },
+      {
+        src: "/images/haldi-orange-courtyard.jpg",
+        alt: "An open courtyard dressed with orange drapes and marigold urns.",
+      },
+      {
+        src: "/images/haldi-marigold-seat.jpg",
+        alt: "A marigold wall with a yellow seat set for haldi.",
+      },
+      {
+        src: "/images/haldi-mehendi-signs.jpg",
+        alt: "Yellow and green circular signs for a haldi and a mehendi.",
+      },
+    ],
+  },
+  {
+    numeral: "04",
+    title: "Pheras",
+    image: "/images/couple-arch.png",
+    alt: "A couple seated under a white floral arch, with a chandelier and red drapes behind them.",
+    text: "The fire is small and the moment is not. Seating, sound, and the ring around the agni are planned so the vows can be heard and the photographers are not the ceremony.",
+    frames: [
+      {
+        src: "/images/entrance-peach-petals.jpg",
+        alt: "A peach drape tunnel with a petal aisle leading to the ceremony.",
+      },
+    ],
+  },
+  {
+    numeral: "05",
+    title: "Reception",
+    image: "/images/reception-palace-hall.jpg",
+    alt: "A palace hall in blue and pink light, with a long aisle and chandeliers.",
+    text: "By evening the tent should feel like another climate. The couple’s entry, the elders’ blessing, and dinner each need a different light and a different volume of music.",
+    frames: [
+      {
+        src: "/images/aisle-white-roses.jpg",
+        alt: "A white rose aisle leading to a gold sequin arch.",
+      },
+      {
+        src: "/images/reception-chandelier-walk.jpg",
+        alt: "A chandelier corridor with a floral carpet for a reception walk.",
+      },
+    ],
+  },
+  {
+    numeral: "06",
+    title: "Palace and tent",
+    image: "/images/tents.jpg",
+    alt: "Long tables set inside a colourful tent, with chandeliers and striped canvas overhead.",
+    text: "Some families marry on palace grounds. Some marry under canvas built for the week. The house works in both, and often in a marriage of the two: stone at the edge, a tent for the rite.",
+    frames: [
+      {
+        src: "/images/entrance-red-night.jpg",
+        alt: "A red floral entrance tunnel lit at night.",
+      },
+      {
+        src: "/images/entrance-peach-arch.jpg",
+        alt: "A peach floral entrance with hanging arrangements and a patterned carpet.",
+      },
+      {
+        src: "/images/entrance-drape-rounds.jpg",
+        alt: "An entrance of red and white vertical drapes with round floral arrangements.",
+      },
+      {
+        src: "/images/entrance-welcome-mirror.jpg",
+        alt: "A blue entrance with a welcome mirror framed by white flowers.",
+      },
+      {
+        src: "/images/entrance-white-arch.jpg",
+        alt: "An entrance hall with a white arch and a patterned carpet.",
+      },
+      {
+        src: "/images/entrance-blue-florals.jpg",
+        alt: "An entrance of blue and white drapes with white floral arrangements.",
+      },
+    ],
+  },
+] as const;
+
+export const celebrations = [
+  {
+    title: "Family and social days",
+    text: "An engagement, a naming, a reception that is not attached to a full wedding week. One room, dressed fully, with hospitality that does not feel borrowed from a banquet hall.",
+  },
+  {
+    title: "Birthdays",
+    text: "A milestone that deserves more than a cake table. We scale the tent, the flowers, and the evening so the person being honoured is visible, and the guests are looked after.",
+  },
+  {
+    title: "Corporate gatherings",
+    text: "Dinners, launches, and meetings that host clients in Jaipur. The same discipline as a wedding: a clear entrance, light that can handle a speech, and a run of show.",
+  },
+  {
+    title: "Sangeet-scale parties",
+    text: "Music, dance, and a guest list large enough to need a stage. These nights borrow the energy of a sangeet and the structure of a directed event.",
+  },
+] as const;
+
+export const processSteps = [
+  {
+    numeral: "01",
+    title: "Listen",
+    text: "The rites you will keep, the ones you will shorten, and the people who must be close to them. A plan that ignores the family will be decorated and still wrong.",
+  },
+  {
+    numeral: "02",
+    title: "Walk the ground",
+    text: "Wind, kitchen access, the place a haldi needs, where elders sit, where rain would travel. The ground decides what the tent can be.",
+  },
+  {
+    numeral: "03",
+    title: "Draw the room",
+    text: "Mandap, paths, stage, and light. Flowers follow the drawing. They are not asked to hide a structure that was never resolved.",
+  },
+  {
+    numeral: "04",
+    title: "Host the day",
+    text: "A producer holds the order. Guests are received. The next ceremony begins because someone was already there.",
+  },
+] as const;
+
+export const faqs = [
+  {
+    q: "Can we book you for individual one-day events like Haldi, Sangeet, or Mehendi?",
+    a: "Yes. A single day can be booked on its own. Haldi, Sangeet, and Mehendi each get the tent, the decor, and the setting for that rite.",
+  },
+  {
+    q: "Do you offer themed decor fabrications for specific traditional ceremonies?",
+    a: "Yes. Decor is built for the ceremony: a haldi courtyard, a mehendi lounge, a sangeet stage, not one look repeated all day.",
+  },
+  {
+    q: "What kinds of corporate events do you manage?",
+    a: "Dinners, launches, conferences, and hosted company gatherings, in a tent or on palace grounds.",
+  },
+  {
+    q: "Do your tenting packages include flooring, carpeting, stage fabrication, and lighting?",
+    a: "Yes. Flooring, carpeting, stage fabrication, and lighting are part of the tenting package, with the canvas.",
+  },
+] as const;
+
+export type GalleryCategory = "Weddings" | "Tents" | "Decor" | "Evenings";
+
+export const galleryFilters = ["All", "Weddings", "Tents", "Decor", "Evenings"] as const;
+
+export const gallery: {
+  src: string;
+  alt: string;
+  title: string;
+  category: GalleryCategory;
+  frame: "tall" | "wide" | "std";
+}[] = [
+  {
+    src: "/images/mandap-cream-posts.jpg",
+    alt: "A cream outdoor mandap with four draped posts and a floral centre, seen from the aisle.",
+    title: "Cream mandap",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-cream-lawn.jpg",
+    alt: "The same cream outdoor mandap from farther across the lawn, with the aisle and drapes in view.",
+    title: "Cream mandap, from the lawn",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-round-dome.jpg",
+    alt: "A round mandap with a domed floral ceiling, red and white drapes, and a sunburst of flowers.",
+    title: "Round dome",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-white-florals.jpg",
+    alt: "A couple seated in a circular mandap of white flowers, with red drapes behind them.",
+    title: "White florals",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/mandap-red-pillars.jpg",
+    alt: "A red and white mandap with floral pillars, hanging garlands, and a carved base.",
+    title: "Red pillars",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/mandap-elephants.jpg",
+    alt: "A red and gold mandap with elephant figures and a floral canopy.",
+    title: "Elephant mandap",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/stage-couple-mandap.jpg",
+    alt: "A couple on a white stage, with a floral mandap behind them.",
+    title: "Couple at the stage",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/haldi-marigold-canopy.jpg",
+    alt: "A yellow marigold canopy with swings and a low daybed for a haldi.",
+    title: "Marigold canopy",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/haldi-marigold-aisle.jpg",
+    alt: "A yellow marigold aisle leading to a floral haldi seat.",
+    title: "Marigold aisle",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/haldi-marigold-swing.jpg",
+    alt: "Two swings under a dense hanging of yellow marigolds.",
+    title: "Marigold swings",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/haldi-marigold-daybed.jpg",
+    alt: "A carved daybed under a yellow marigold canopy.",
+    title: "Marigold daybed",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/haldi-neon-sign.jpg",
+    alt: "A haldi set with a neon sign, marigolds, and pastel balloons.",
+    title: "Neon haldi",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/haldi-orange-courtyard.jpg",
+    alt: "An open courtyard dressed with orange drapes and marigold urns.",
+    title: "Orange courtyard",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/haldi-marigold-seat.jpg",
+    alt: "A marigold wall with a yellow seat set for haldi.",
+    title: "Marigold seat",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/haldi-mehendi-signs.jpg",
+    alt: "Yellow and green circular signs for a haldi and a mehendi.",
+    title: "Haldi and mehendi signs",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/aisle-white-roses.jpg",
+    alt: "A white rose aisle leading to a gold sequin arch.",
+    title: "White rose aisle",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/mehendi-garden.jpg",
+    alt: "A garden mehendi with yellow umbrellas, low tables, and a long floral aisle.",
+    title: "Garden mehendi",
+    category: "Weddings",
+    frame: "std",
+  },
+  {
+    src: "/images/palace-courtyard.jpg",
+    alt: "A palace courtyard set for a wedding, with a floral arch, a cream aisle, and carved stone balconies.",
+    title: "Palace courtyard",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/couple-hill.png",
+    alt: "A couple in wedding dress standing before a palace on a green hill.",
+    title: "On the hill",
+    category: "Weddings",
+    frame: "tall",
+  },
+  {
+    src: "/images/couple-arch.png",
+    alt: "A couple seated under a white floral arch, with a chandelier and red drapes behind them.",
+    title: "Under the arch",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/couple-florals.png",
+    alt: "A couple seated under a white floral ceiling with chandeliers and candle stands.",
+    title: "Under the flowers",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/seaside-mandap.png",
+    alt: "A pink mandap on a seaside platform, with floral stands and a patterned aisle.",
+    title: "Seaside mandap",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/lantern-mandap.png",
+    alt: "An outdoor mandap with hanging lanterns, red and white drapes, and a floral aisle.",
+    title: "Lantern mandap",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/seating.jpg",
+    alt: "An outdoor ceremony with rows of seating dressed in white.",
+    title: "Open-air seating",
+    category: "Weddings",
+    frame: "wide",
+  },
+  {
+    src: "/images/tents.jpg",
+    alt: "A long dining table inside a colourful striped event tent.",
+    title: "Canvas dining room",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
+    src: "/images/mandap-floral.jpg",
+    alt: "People seated under a dense red and white floral canopy.",
+    title: "Floral canopy",
+    category: "Tents",
+    frame: "tall",
+  },
+  {
+    src: "/images/entrance.jpg",
+    alt: "A celebration entrance with red drapes and hanging lights.",
+    title: "The threshold",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-red-night.jpg",
+    alt: "A red floral entrance tunnel lit at night.",
+    title: "Red night entrance",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-peach-petals.jpg",
+    alt: "A peach drape tunnel with a petal aisle leading to the ceremony.",
+    title: "Peach petal aisle",
+    category: "Tents",
+    frame: "tall",
+  },
+  {
+    src: "/images/entrance-peach-arch.jpg",
+    alt: "A peach floral entrance with hanging arrangements and a patterned carpet.",
+    title: "Peach floral entrance",
+    category: "Tents",
+    frame: "tall",
+  },
+  {
+    src: "/images/entrance-drape-rounds.jpg",
+    alt: "An entrance of red and white vertical drapes with round floral arrangements.",
+    title: "Round floral entrance",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-welcome-mirror.jpg",
+    alt: "A blue entrance with a welcome mirror framed by white flowers.",
+    title: "Welcome mirror",
+    category: "Tents",
+    frame: "std",
+  },
+  {
+    src: "/images/entrance-white-arch.jpg",
+    alt: "An entrance hall with a white arch and a patterned carpet.",
+    title: "White arch entrance",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
+    src: "/images/entrance-blue-florals.jpg",
+    alt: "An entrance of blue and white drapes with white floral arrangements.",
+    title: "Blue floral entrance",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
+    src: "/images/tent-blossoms.png",
+    alt: "A draped tent with drum chandeliers and blossom trees around a mandap.",
+    title: "Blossom tent",
+    category: "Tents",
+    frame: "wide",
+  },
+  {
+    src: "/images/stage-white-sofa.jpg",
+    alt: "A wide stage with a white sofa, red side drapes, and a floral canopy.",
+    title: "White sofa stage",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/stage-carved-white.jpg",
+    alt: "An ornate white stage with red drapes, crystal strands, and a floral centre.",
+    title: "Carved white stage",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/stage-red-panels.jpg",
+    alt: "A red and white stage with carved panels, a monogram, and floral pillars.",
+    title: "Red panel stage",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/floral-ceiling.jpg",
+    alt: "A ceiling of white and gold flowers above a wedding aisle.",
+    title: "A ceiling of flowers",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/stage-monogram.png",
+    alt: "A pink and white stage with a monogram, floral pillars, and carved jharokha niches.",
+    title: "Monogram stage",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/peach-arch.png",
+    alt: "Peach drapes framing a floral arch and a sofa dressed in flowers.",
+    title: "Peach arch",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/lounge-bougainvillea.jpg",
+    alt: "A pink bougainvillea arch over a daybed, set as lounge decor.",
+    title: "Bougainvillea lounge",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/gold-sofa.png",
+    alt: "A carved gold sofa against blush drapes, with hanging flowers and a chandelier.",
+    title: "Gold sofa",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/floral-sofa.jpg",
+    alt: "A sofa set dressed in red and white flowers for a ceremony.",
+    title: "Seating, in flower",
+    category: "Decor",
+    frame: "std",
+  },
+  {
+    src: "/images/flowers.jpg",
+    alt: "A vessel of mixed flowers on a table.",
+    title: "The table",
+    category: "Decor",
+    frame: "tall",
+  },
+  {
+    src: "/images/red-chairs.jpg",
+    alt: "Red and green chairs arranged inside a decorated room.",
+    title: "A coloured room",
+    category: "Decor",
+    frame: "wide",
+  },
+  {
+    src: "/images/sangeet-blue-spotlights.jpg",
+    alt: "A night stage washed in blue light, with a white sofa and spotlights above.",
+    title: "Blue spotlights",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/sangeet-purple-arches.jpg",
+    alt: "Purple light under repeated chandelier arches on a night stage.",
+    title: "Purple arches",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/sangeet-lantern-floor.jpg",
+    alt: "A dance floor edged with lanterns, with a chandelier over the centre.",
+    title: "Lantern floor",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/sangeet-mirror-entry.jpg",
+    alt: "A night entrance with a mirror welcome, white flowers, and warm lamps.",
+    title: "Mirror welcome",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/reception-palace-hall.jpg",
+    alt: "A palace hall in blue and pink light, with a long aisle and chandeliers.",
+    title: "Blue and pink hall",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/reception-chandelier-walk.jpg",
+    alt: "A chandelier corridor with a floral carpet for a reception walk.",
+    title: "Chandelier walk",
+    category: "Evenings",
+    frame: "tall",
+  },
+  {
+    src: "/images/palace-night.jpg",
+    alt: "A sandstone palace illuminated at night, reflected in water.",
+    title: "Palace, after dark",
+    category: "Evenings",
+    frame: "wide",
+  },
+  {
+    src: "/images/candles.jpg",
+    alt: "Many candles lit along a low table in a dim room.",
+    title: "Candlelight",
+    category: "Evenings",
+    frame: "tall",
+  },
+  {
+    src: "/images/chandelier.jpg",
+    alt: "A chandelier above a floral reception stage.",
+    title: "Chandelier and stage",
+    category: "Evenings",
+    frame: "std",
+  },
+  {
+    src: "/images/palace-dusk.png",
+    alt: "A Rajasthan palace at dusk, with a yellow mandap and purple petals on the lawn.",
+    title: "Palace at dusk",
+    category: "Evenings",
+    frame: "wide",
+  },
+  {
+    src: "/images/palace-night-diyas.png",
+    alt: "A palace at night with a red mandap, rows of diyas, and a floral aisle.",
+    title: "Diyas at night",
+    category: "Evenings",
+    frame: "wide",
+  },
+  {
+    src: "/images/palace-night-lounges.png",
+    alt: "Red lounge seating on a palace lawn at night, with diyas along the path.",
+    title: "Night lounges",
+    category: "Evenings",
+    frame: "wide",
+  },
+  {
+    src: "/images/courtyard-dusk.png",
+    alt: "An empty palace courtyard at dusk, with sandstone arches and a reflecting pool.",
+    title: "Courtyard at dusk",
+    category: "Evenings",
+    frame: "wide",
+  },
+  {
+    src: "/images/fireworks.png",
+    alt: "A couple seated before a floral mandap while fireworks rise over the water.",
+    title: "Fireworks",
+    category: "Evenings",
+    frame: "wide",
+  },
+];
+
+export const homeMeta = (): Metadata => {
+  const title = "SVTP Events · Shree Vishal Tent Palace, Jaipur";
+  const description =
+    "SVTP Events is Shree Vishal Tent Palace, a Jaipur house for weddings and gatherings: mandap, tent, floral decor, lighting, and full event direction.";
+  return {
+    title: { absolute: title },
+    description,
+    alternates: { canonical: "/" },
+    openGraph: { title, description, url: "/" },
+  };
+};
+
+export function pageMeta(path: string, title: string, description: string): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: { title, description, url: path },
+  };
+}
