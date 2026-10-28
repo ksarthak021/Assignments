@@ -13,8 +13,8 @@ export const BRAND = {
   address: "Shiv Colony, Kissan Marg, Tonk Phatak, Jaipur 302015",
   phone: "+91 9414320406",
   phoneTel: "tel:+919414320406",
-  email: "sarthakrules21@gmail.com",
-  emailMailto: "mailto:sarthakrules21@gmail.com",
+  email: "svtpevents@gmail.com",
+  emailMailto: "mailto:svtpevents@gmail.com",
   whatsapp: "https://wa.me/919414320406",
   lat: 26.8720184,
   lng: 75.7905572,
@@ -29,7 +29,7 @@ export const MAP = {
     "https://www.google.com/maps/dir/?api=1&destination=Shree+Vishal+Tent+Palace,+Shiv+Colony,+Kissan+Marg,+Tonk+Phatak,+Jaipur+302015",
 } as const;
 
-export const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/sarthakrules21@gmail.com";
+export const INQUIRY_ENDPOINT = "https://formsubmit.co/ajax/svtpevents@gmail.com";
 export const INQUIRY_SUBJECT = "New inquiry — SVTP Events";
 
 export const NAV = [
