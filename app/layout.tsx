@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     siteName: "SVTP Events",
   },
   twitter: { card: "summary_large_image" },
+  verification: {
+    google: "n5m9fESoRHl7xHSVNPj3Q3HJjno_oc7wuEa8gYEnmmw",
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
