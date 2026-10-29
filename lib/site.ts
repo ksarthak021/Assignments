@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ksarthak021.github.io";
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://svtpevents.vercel.app";
 
 export const BRAND = {
   name: "SVTP Events",
@@ -891,7 +891,7 @@ export const gallery: {
 ];
 
 export const homeMeta = (): Metadata => {
-  const title = "SVTP Events · Shree Vishal Tent Palace, Jaipur";
+  const title = "Wedding & Event Planner in Jaipur | SVTP Events";
   const description =
     "SVTP Events is Shree Vishal Tent Palace, a Jaipur house for weddings and gatherings: mandap, tent, floral decor, lighting, and full event direction.";
   return {
